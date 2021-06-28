@@ -6,7 +6,7 @@ interface IProps {
 }
 
 export default function SearchBar({ ressource }: IProps) {
-const [onSearch, setOnSearch] = useState(null)
+const [onSearch, setOnSearch] = useState("")
 
   return (
     <form className="flex">

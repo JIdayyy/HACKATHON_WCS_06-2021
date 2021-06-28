@@ -1,19 +1,19 @@
-import 'tailwindcss/tailwind.css'
-import Layout from '../components/Layout'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { AppProps } from 'next/dist/next-server/lib/router/router'
-const queryClient = new QueryClient()
+import 'tailwindcss/tailwind.css';
+import { AppProps } from 'next/dist/next-server/lib/router/router';
+import { ApolloProvider } from '@apollo/client';
+import client from '../apollo/apollo-client';
+import Layout from '../components/Layout';
 
-
-
-function MyApp({ Component, pageProps }:AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-        <QueryClientProvider client={queryClient}>
+    <ApolloProvider client={client}>
+      <div>
         <Layout page="Home">
           <Component {...pageProps} />
         </Layout>
-        </QueryClientProvider>
-  )
+      </div>
+    </ApolloProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
