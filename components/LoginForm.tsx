@@ -57,6 +57,16 @@ export default function LoginForm(): JSX.Element {
           value="Connect"
         />
       </form>
+      <div className="flex flex-col text-center mt-2 mb-8 text-white">
+        <p className="text-xs">
+          {"Don't have an account? "}
+          <span className="text-blue-500">Sign in</span>
+        </p>
+        <p className="text-xs">
+          Forgot Password?
+          <span className="text-blue-500">New password</span>
+        </p>
+      </div>
     </div>
   );
 }
