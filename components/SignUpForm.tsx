@@ -55,7 +55,7 @@ export default function SignUpForm(): JSX.Element {
               placeholder="Matthias"
               {...register("firstName")}
             />
-            <label className="text-white" htmlFor="lastName">
+            <label className="text-white mt-5" htmlFor="lastName">
               Last Name
             </label>
             <input
@@ -64,7 +64,7 @@ export default function SignUpForm(): JSX.Element {
               {...register("lastName")}
             />
 
-            <p className="text-white">Email</p>
+            <p className="text-white mt-5">Email</p>
             <input
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
