@@ -10,6 +10,7 @@ export default function LoginForm(): JSX.Element {
     handleSubmit,
     formState: { errors },
     watch,
+    getValues,
   } = useForm();
   const onSubmit = (data: object) => console.log(watch);
   console.log(errors);
@@ -49,7 +50,15 @@ export default function LoginForm(): JSX.Element {
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="email@email.com"
-              {...register("email", {
+              {...register("email", {})}
+            />
+            <label className="text-white mt-3">Password</label>
+
+            <input
+              className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
+              type="text"
+              placeholder="password"
+              {...register("password", {
                 required: "Specify your password",
                 minLength: {
                   value: 10,
@@ -57,25 +66,29 @@ export default function LoginForm(): JSX.Element {
                 },
               })}
             />
-            <label className="text-white mt-3">Password</label>
-            {errors.password && <p>{errors.password.message}</p>}
-            <input
-              className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
-              type="text"
-              placeholder="password"
-              {...register("password", {
-                validate: (value) =>
-                  value === password.current || "The passwords do not match",
-              })}
-            />
+            {errors.password && (
+              <p style={{ color: "white" }}>{errors.password.message}</p>
+            )}
             <label className="text-white mt-3">Confirm Password</label>
             <input
               className="rounded-md text-white bg-grayinput bg-opacity-30 focus:outline-none shadow-inputShadow p-2"
               type="text"
               placeholder="confirm password"
-              {...register("confirm password", {})}
+              {...register("passwordConfirmation", {
+                required: "Please confirm password!",
+                validate: {
+                  matchesPreviousPassword: (value) => {
+                    const { password } = getValues();
+                    return password === value || "Passwords should match!";
+                  },
+                },
+              })}
             />
-            {errors.password_repeat && <p>{errors.password_repeat.message}</p>}
+            {errors.passwordConfirmation && (
+              <p style={{ color: "white" }}>
+                {errors.passwordConfirmation.message}
+              </p>
+            )}
             <input
               className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"
