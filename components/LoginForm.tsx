@@ -1,17 +1,35 @@
-export default function LoginForm(params) {
+import { useForm } from "react-hook-form";
+
+export default function LoginForm(): JSX.Element {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data: object) => console.log(data);
+  console.log(errors);
+
   return (
-    <div className=" text-white p-10 rounded-md">
-      <label>Email </label>
-      <input
-        className="w-full h-11 bg-gray-500 my-4 px-4 rounded-md"
-        type="text"
-      />
-      <label>Password: </label>
-      <input
-        className="w-full h-11 bg-gray-500 my-4 px-4 rounded-md"
-        type="text"
-      />
-      <button className="py-2 border rounded-md px-4">LOGIN</button>
+    <div className="w-2/3 ">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col  ">
+        <input
+          type="text"
+          placeholder="email@email.com"
+          {...register("email", {})}
+        />
+        <input
+          type="text"
+          placeholder="password"
+          {...register("password", {})}
+        />
+        <input
+          type="text"
+          placeholder="confirm password"
+          {...register("confirm password", {})}
+        />
+
+        <input type="submit" />
+      </form>
     </div>
   );
 }
