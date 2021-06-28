@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Link from 'next/link';
-import Image from 'next/image';
-import close from '../public/images/close.svg';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import Link from "next/link";
+import Image from "next/image";
+import close from "../public/images/close.svg";
 
 export default function LoginForm(): JSX.Element {
   const {
@@ -10,6 +10,7 @@ export default function LoginForm(): JSX.Element {
     handleSubmit,
     formState: { errors },
     watch,
+    getValues,
   } = useForm();
   const onSubmit = (data: object) => console.log(watch);
   console.log(errors);
@@ -24,37 +25,76 @@ export default function LoginForm(): JSX.Element {
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col  ">
                 <p className="text-white font-Open text-4xl font-bold">Login</p>
-                <p className="text-white text-xl">Join and work with the fiver freelance community</p>
+                <p className="text-white text-xl">
+                  Join and work with the fiver freelance community
+                </p>
               </div>
               <Link href="/">
-                <Image className="cursor-pointer" src={close} width={20} height={20} alt="close" />
+                <Image
+                  className="cursor-pointer"
+                  src={close}
+                  width={20}
+                  height={20}
+                  alt="close"
+                />
               </Link>
             </div>
           </div>
 
-          <form className="flex font-Open flex-col mt-3" onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className="flex font-Open flex-col mt-3"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <p className="text-white">Email</p>
             <input
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="email@email.com"
-              {...register('email', {})}
+              {...register("email", {})}
             />
-            <p className="text-white mt-3">Password</p>
+            <label className="text-white mt-3">Password</label>
+
             <input
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="password"
-              {...register('password', {})}
+              {...register("password", {
+                required: "Specify your password",
+                minLength: {
+                  value: 10,
+                  message: "Password must have at least 10 characters",
+                },
+              })}
             />
-            <p className="text-white mt-3">Confirm Password</p>
+            {errors.password && (
+              <p style={{ color: "white" }}>{errors.password.message}</p>
+            )}
+            <label className="text-white mt-3">Confirm Password</label>
             <input
               className="rounded-md text-white bg-grayinput bg-opacity-30 focus:outline-none shadow-inputShadow p-2"
               type="text"
               placeholder="confirm password"
-              {...register('confirm password', {})}
+              {...register("passwordConfirmation", {
+                required: "Please confirm password!",
+                validate: {
+                  matchesPreviousPassword: (value) => {
+                    const { password } = getValues();
+                    return password === value || "Passwords should match!";
+                  },
+                },
+              })}
             />
-            <input className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow" type="submit" value="Connect" />
+            {errors.passwordConfirmation && (
+              <p style={{ color: "white" }}>
+                {errors.passwordConfirmation.message}
+              </p>
+            )}
+            <input
+              className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
+              type="submit"
+              value="Connect"
+              onClick={handleSubmit(onSubmit)}
+            />
             <div className="flex flex-col text-center mt-2 mb-8 text-white">
               <p className="text-xs">
                 {"Don't have an account? "}
