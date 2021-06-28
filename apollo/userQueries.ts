@@ -11,13 +11,31 @@ export const getAllUsers = gql`
 `;
 
 export const getOneUser = gql`
-  query user($id: ID!){
-    User_by_pk(id: $id){
-      id,
-      firstname,
-      lastname,
+  query user($id: uuid!) {
+    User_by_pk(id: $id) {
+      id
+      firstname
+      lastname
       email
-    }
+      avatar_url
+      bio
+      fiverr_url
+      phone_number
+      user_jobs {
+        Job {
+          label
+        }
+      }
+      user_skills {
+        Skill {
+          label
+        }
+      }
+      user_squads {
+        Squad {
+          name
+        }
+      }
     }
   }
 `;
@@ -34,7 +52,7 @@ export const createUser = gql`
 `;
 
 export const updateUser = gql`
-  mutation updateUser($id: ID!, user: User_set_input){
+  mutation updateUser($id: uuid!, user: User_set_input){
     update_User_by_pk(pk_columns: {$id}, _set: $user){
       id,
       firstname,
