@@ -98,7 +98,9 @@ export default function LoginForm(): JSX.Element {
             <div className="flex flex-col text-center mt-2 mb-8 text-white">
               <p className="text-xs">
                 {"Don't have an account? "}
-                <span className="text-blue-500">Sign in</span>
+                <span className="text-blue-500">
+                  <a href="/signup">Sign up</a>
+                </span>
               </p>
               <p className="text-xs">
                 Forgot Password?
