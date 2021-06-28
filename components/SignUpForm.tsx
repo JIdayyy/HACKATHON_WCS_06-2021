@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import close from "../public/images/close.svg";
 
-export default function LoginForm(): JSX.Element {
+export default function SignUpForm(): JSX.Element {
   const {
     register,
     handleSubmit,
@@ -24,7 +24,9 @@ export default function LoginForm(): JSX.Element {
           <div className="flex w-full justify-between">
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col  ">
-                <p className="text-white font-Open text-4xl font-bold">Login</p>
+                <p className="text-white font-Open text-4xl font-bold">
+                  Sign up
+                </p>
                 <p className="text-white text-xl">
                   Join and work with the fiver freelance community
                 </p>
@@ -45,7 +47,24 @@ export default function LoginForm(): JSX.Element {
             className="flex font-Open flex-col mt-3"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <p className="text-white">Email</p>
+            <label className="text-white" htmlFor="firstName ">
+              First Name
+            </label>
+            <input
+              className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
+              placeholder="Matthias"
+              {...register("firstName")}
+            />
+            <label className="text-white mt-5" htmlFor="lastName">
+              Last Name
+            </label>
+            <input
+              className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
+              placeholder="Wanner"
+              {...register("lastName")}
+            />
+
+            <p className="text-white mt-5">Email</p>
             <input
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
@@ -97,14 +116,10 @@ export default function LoginForm(): JSX.Element {
             />
             <div className="flex flex-col text-center mt-2 mb-8 text-white">
               <p className="text-xs">
-                {"Don't have an account? "}
+                {"Already have an account? "}
                 <span className="text-blue-500">
-                  <a href="/signup">Sign up</a>
+                  <a href="/login">Sign in</a>
                 </span>
-              </p>
-              <p className="text-xs">
-                Forgot Password?
-                <span className="text-blue-500">New password</span>
               </p>
             </div>
           </form>
