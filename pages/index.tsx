@@ -2,6 +2,8 @@ import Group_Card from '../components/Group_Card';
 import SearchBar from '../components/SearchBar';
 import Image from 'next/image';
 import Log from '../public/LogIn.svg';
+import Link from 'next/link';
+
 export default function Home(): JSX.Element {
   const ressource = [];
   return (
@@ -20,7 +22,9 @@ export default function Home(): JSX.Element {
           <h3 className="mt-5 sm:text-3xl text-lg font-light">Find the team you need already build and ready to work on your dream project. </h3>
         </div>
         <div className="flex flex-col sm:flex-row sm:w-4/12 mt-10 justify-between">
-          <button className="bg-pink shadow-buttonShadow mt-5 px-8 py-2 rounded-md">Find Your Squad</button>
+          <Link href="/squad">
+            <a className="bg-pink shadow-buttonShadow mt-5 px-8 py-2 rounded-md">Find Your Squad</a>
+          </Link>
           <button className="bg-pink shadow-buttonShadow mt-5 px-8 py-2 rounded-md">Hire Your Squad</button>
         </div>
       </div>

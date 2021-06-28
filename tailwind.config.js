@@ -13,6 +13,7 @@ module.exports = {
       },
       colors: {
         pink: '#925392',
+        darkPink: '#6E256E',
       },
       boxShadow: {
         buttonShadow: '10px 10px 20px rgba(0, 0, 0, 0.15)',
