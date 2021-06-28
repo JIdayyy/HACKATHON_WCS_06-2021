@@ -9,7 +9,7 @@ interface IProps {
 
 export default function Group_Card({ name, buisness, description }: IProps) {
   return (
-    <div className="w-72 h-96 bg-white bg-opacity-20 m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white">
+    <div className="w-11/12 sm:w-64 h-96 bg-white bg-opacity-20 m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white">
       <Image width={120} height={230} src="/profile_placeholder.png" />
       <div className="w-full h-full flex flex-col items-left align-middle justify-center">
         <div className="text-2xl">{name}</div>
