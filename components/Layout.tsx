@@ -1,7 +1,12 @@
 import Head from 'next/head'
-import Navbar from '../components/Navbar'
+import Navbar from './Navbar'
 
-export default function Layout({page,children}) {
+interface IProps {
+    page: string,
+    children: React.ReactNode
+}
+
+export default function Layout({page,children}:IProps):JSX.Element{
     return(
         <div className='w-full flex flex-col  min-h-screen'>
             <Head>
