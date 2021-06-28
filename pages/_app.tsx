@@ -7,7 +7,7 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="bg-darkPink">
+      <div >
         <Layout page="Home">
           <Component {...pageProps} />
         </Layout>

@@ -1,3 +1,3 @@
 export default function Sidebar() {
-  return <div className="h-full w-2/12 mt-40 bg-black"></div>;
+  return <div className="w-96 z-50 transform  bg-opacity-75 bg-black"></div>;
 }
