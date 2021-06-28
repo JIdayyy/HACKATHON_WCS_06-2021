@@ -5,12 +5,13 @@ export default function LoginForm(): JSX.Element {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm();
-  const onSubmit = (data: object) => console.log(data);
+  const onSubmit = (data: object) => console.log(watch);
   console.log(errors);
 
   return (
-    <div className="w-2/3 h-3/5 rounded-lg p-16 bg-backGround  ">
+    <div className="w-2/3  rounded-lg p-8 md:p-16 bg-backGround md:w-1/3 ">
       <p className="flex justify-end text-white text-xs ">X</p>
       <div className="flex flex-col mb-7">
         <p className="text-white text-lg font-bold ">Login</p>
