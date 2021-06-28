@@ -15,9 +15,9 @@ export default function LoginForm(): JSX.Element {
   const [show, setShow] = useState(false);
 
   return (
-    <div className="w-screen h-screen bg-backGround absolute top-0 z-50">
-      <div className="w-screen flex flex-col justify-center items-center h-screen bg-black bg-opacity-50">
-        <div className="w-2/3 flex rounded-lg p-8 md:p-16 bg-backGround md:w-4/12 ">
+    <div className="w-screen h-screen absolute bg-backGround bg-cover top-0 z-50">
+      <div className="w-screen h-screen flex flex-col justify-center items-center bg-black bg-opacity-50">
+        <div className="w-2/3 flex flex-col  rounded-lg p-8 md:p-16 bg-backGround bg-cover sm:w-6/12 shadow-inputShadow">
           <Link href="/">
             <p className="flex justify-end text-white text-xs ">X</p>
           </Link>
@@ -49,7 +49,17 @@ export default function LoginForm(): JSX.Element {
               placeholder="confirm password"
               {...register('confirm password', {})}
             />
-            <input className="rounded-md p-1 text-white bg-buttonBlue shadow-inputShadow" type="submit" value="Connect" />w{' '}
+            <input className="rounded-md p-1 text-white bg-buttonBlue shadow-inputShadow" type="submit" value="Connect" />
+            <div className="flex flex-col text-center mt-2 mb-8 text-white">
+              <p className="text-xs">
+                {"Don't have an account? "}
+                <span className="text-blue-500">Sign in</span>
+              </p>
+              <p className="text-xs">
+                Forgot Password?
+                <span className="text-blue-500">New password</span>
+              </p>
+            </div>
           </form>
         </div>
       </div>
