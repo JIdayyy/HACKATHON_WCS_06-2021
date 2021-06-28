@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const getsSquads = gql`
+export const getSquads = gql`
   query AllSquads {
     Squad {
       id
