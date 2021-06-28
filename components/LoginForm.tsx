@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function LoginForm(): JSX.Element {
@@ -10,9 +11,13 @@ export default function LoginForm(): JSX.Element {
   const onSubmit = (data: object) => console.log(watch);
   console.log(errors);
 
+  const [show, setShow] = useState(false);
+
   return (
     <div className="w-2/3  rounded-lg p-8 md:p-16 bg-backGround md:w-1/3 ">
-      <p className="flex justify-end text-white text-xs ">X</p>
+      <button onClick={() => setShow(!show)}>
+        <p className="flex justify-end text-white text-xs ">X</p>
+      </button>
       <div className="flex flex-col mb-7">
         <p className="text-white text-lg font-bold ">Login</p>
         <p className="text-white">
