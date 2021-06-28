@@ -7,9 +7,12 @@ import Link from 'next/link';
 export default function Home(): JSX.Element {
   const ressource = [];
   return (
-    <div className="h-screen w-screen text-white bg-backGround bg-cover bg-no-repeat bg-center Z-50 flex-col absolute top-0 items-center justify-center min-h-screen py-2">
+    <div className="h-screen w-screen text-white bg-backGround bg-cover bg-no-repeat bg-center z-50 flex-col absolute top-0 items-center justify-center min-h-screen py-2">
       <div className="w-full flex pr-12 pt-5 justify-end">
-        <button className=" mr-2 text-xl">LogIn</button>
+        <Link href="/login">
+          <button className=" mr-2 text-xl">LogIn</button>
+        </Link>
+        <button className=" mr-2 text-xl">SignIn</button>
         <Image className="" src={Log} height={20} width={20} alt="log" />
       </div>
       <div className="text-white w-screen mt-20 flex flex-col justify-center items-center">

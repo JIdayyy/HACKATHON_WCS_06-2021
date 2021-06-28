@@ -1,17 +1,48 @@
-export default function LoginForm(params) {
+import { useForm } from 'react-hook-form';
+
+export default function LoginForm(): JSX.Element {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
+  const onSubmit = (data: object) => console.log(watch);
+  console.log(errors);
+
   return (
-    <div className=" text-white p-10 rounded-md">
-      <label>Email </label>
-      <input
-        className="w-full h-11 bg-gray-500 my-4 px-4 rounded-md"
-        type="text"
-      />
-      <label>Password: </label>
-      <input
-        className="w-full h-11 bg-gray-500 my-4 px-4 rounded-md"
-        type="text"
-      />
-      <button className="py-2 border rounded-md px-4">LOGIN</button>
+    <div className="w-10/12 rounded-lg p-8 md:p-16 bg-backGround md:w-8/12 ">
+      <p className="flex justify-end text-white text-xs ">X</p>
+      <div className="flex flex-col mb-7">
+        <p className="text-white text-lg font-bold ">Login</p>
+        <p className="text-white">Join and work with the fiver freelance community</p>
+      </div>
+
+      <form className="flex flex-col space-y-3  " onSubmit={handleSubmit(onSubmit)}>
+        <p className="text-white">Email</p>
+        <input
+          className="rounded-md bg-grayinput bg-opacity-30 shadow-inputShadow p-1"
+          type="text"
+          placeholder="email@email.com"
+          {...register('email', {})}
+        />
+        <p className="text-white ">Password</p>
+        <input
+          className="rounded-md bg-grayinput bg-opacity-30 shadow-inputShadow p-1"
+          type="text"
+          placeholder="password"
+          {...register('password', {})}
+        />
+        <p className="text-white ">Confirm Password</p>
+        <input
+          className="rounded-md bg-grayinput bg-opacity-30 shadow-inputShadow p-1"
+          type="text"
+          placeholder="confirm password"
+          {...register('confirm password', {})}
+        />
+
+        <input className="rounded-md p-1 text-white bg-buttonBlue shadow-inputShadow" type="submit" value="Connect" />
+      </form>
     </div>
   );
 }
