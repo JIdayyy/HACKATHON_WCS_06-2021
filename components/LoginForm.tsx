@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
+import Image from 'next/image';
+import close from '../public/images/close.svg';
 
 export default function LoginForm(): JSX.Element {
   const {
@@ -18,9 +20,11 @@ export default function LoginForm(): JSX.Element {
     <div className="w-screen h-screen absolute bg-backGround bg-cover top-0 z-50">
       <div className="w-screen h-screen flex flex-col justify-center items-center bg-black bg-opacity-50">
         <div className="w-2/3 flex flex-col  rounded-lg p-8 md:p-16 bg-backGround bg-cover sm:w-6/12 shadow-inputShadow">
-          <Link href="/">
-            <p className="flex justify-end text-white text-xs ">X</p>
-          </Link>
+          <div className="flex justify-end -m-6 ">
+            <Link href="/">
+              <Image src={close} width={20} height={20} alt="close" />
+            </Link>
+          </div>
 
           <div className="flex flex-col mb-7">
             <p className="text-white text-lg font-bold ">Login</p>
