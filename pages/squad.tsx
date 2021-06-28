@@ -9,9 +9,10 @@ function squad() {
       <div className="flex w-full">
         
         <div className=" flex my-48 items-center  justify-center align-middle flex-wrap">
-          {fakeSquad.map(() => {
+          {fakeSquad.map((group,index) => {
             return (
               <Group_Card
+              key={index}
                 name={fakeSquad[0].name}
                 buisness={fakeSquad[0].buisness}
                 description={fakeSquad[0].description}
