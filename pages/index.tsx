@@ -25,9 +25,9 @@ export default function Home(): JSX.Element {
         </div>
         <div className="flex flex-col sm:flex-row sm:w-4/12 sm:mt-20 mt-10 sm:justify-between">
           <Link href="/squad">
-            <a className="bg-pink shadow-buttonShadow  px-8 py-2 rounded-md">Find Your Squad</a>
+            <a className="bg-pink shadow-buttonShadow mt-5 px-8 py-2 rounded-md">Find Your Squad</a>
           </Link>
-          <button className="bg-pink shadow-buttonShadow mt-5 px-8 py-2 rounded-md">Find Your Squad</button>
+
           <button className="bg-pink shadow-buttonShadow mt-5 px-8 py-2 rounded-md">Hire Your Squad</button>
         </div>
       </div>
