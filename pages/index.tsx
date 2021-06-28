@@ -9,7 +9,10 @@ export default function Home(): JSX.Element {
         <Link href="/login">
           <button className=" mr-2 text-xl">LogIn /</button>
         </Link>
-        <button className=" mr-2 text-xl">SignIn</button>
+        <Link href="/signup">
+          <button className=" mr-2 text-xl">Sign up</button>
+        </Link>
+
         <Image className="" src={Log} height={20} width={20} alt="log" />
       </div>
       <div className="text-white w-screen mt-20 flex flex-col justify-center items-center">
