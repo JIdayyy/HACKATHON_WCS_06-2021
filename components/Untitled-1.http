@@ -1,0 +1,3 @@
+GET https://fiverr-squad.hasura.app/api/rest/users
+x-hasura-admin-secret: PjfyrUDJWBKdgA3529sHNwxOifZwefIYqN5Bk90zWb52XSYMr6CpkZXpSGYck8gC
+
