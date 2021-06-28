@@ -1,5 +1,3 @@
-import Group_Card from '../components/Group_Card';
-import SearchBar from '../components/SearchBar';
 import Image from 'next/image';
 import Log from '../public/LogIn.svg';
 import Link from 'next/link';
@@ -27,7 +25,6 @@ export default function Home(): JSX.Element {
           <Link href="/squad">
             <a className="bg-pink shadow-buttonShadow mt-5 px-8 py-2 rounded-md">Find Your Squad</a>
           </Link>
-
           <button className="bg-pink shadow-buttonShadow mt-5 px-8 py-2 rounded-md">Hire Your Squad</button>
         </div>
       </div>
