@@ -1,5 +1,3 @@
-import Group_Card from "../components/Group_Card";
-import SearchBar from "../components/SearchBar";
 import Image from "next/image";
 import Log from "../public/LogIn.svg";
 import Link from "next/link";
