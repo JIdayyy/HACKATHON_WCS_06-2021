@@ -4,7 +4,9 @@ export default function SearchBar() {
   const [onSearch, setOnSearch] = useState('');
 
   return (
+
     <form className="flex  justify-star mt-5 sm:mt-0  w-full sm:w-8/12 sm:justify-start">
+
       <input
         onChange={(e) => setOnSearch(e.target.value)}
         type="search"
