@@ -24,6 +24,9 @@ module.exports = {
       screens: {
         sm: '1000px',
       },
+      width: {
+        sideBar: '25rem',
+      },
     },
   },
   variants: {
