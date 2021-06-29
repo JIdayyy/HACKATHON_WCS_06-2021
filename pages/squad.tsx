@@ -1,12 +1,9 @@
 
 import React from 'react';
-import Sidebar from '../components/Sidebar';
 import { fakeSquad } from '../fakeData';
 import Group_Card from '../components/Group_Card';
 import { useQuery } from '@apollo/client';
 import { getSquads } from '../apollo/squadQueries';
-
-
 
 function squad() {
   const { data, loading } = useQuery(getSquads);
