@@ -5,6 +5,7 @@ import { fakeProject } from '../../fakeData';
 import { useRouter } from 'next/dist/client/router';
 import { getOneSquad } from '../../apollo/squadQueries';
 import { useQuery } from '@apollo/client';
+import Link from 'next/link';
 
 function squad() {
   const router = useRouter();
@@ -13,24 +14,34 @@ function squad() {
   // const { data: projectData, loading} = useQuery(getAllProject, variables: {id})
   console.log(squadeData);
 
+  const handleClick = () => {
+    window.history.back();
+  };
+
   return (
     <div className="  overflow-y-auto w-full h-screen ">
       <div className=" w-full text-white mb-40">
         <div className="flex justify-end mr-14">
-          <button className="bg-returnButton shadow-buttonShadow mt-5 px-8 py-2 rounded-md">
-            <a href="/squad">Return</a>
-          </button>
+          <Link href="/squad">
+            <button className="transition duration-500 bg-returnButton shadow-buttonShadow mt-5 px-8 py-2 rounded-md hover:scale-105">Return</button>
+          </Link>
         </div>
         <div>
-          <h1 className="sm:text-7xl text-6xl mx-4 font-bold">Space Rocket</h1>
+          <h1 className="sm:text-7xl text-6xl mx-4 sm:mx-0 font-bold">Space Rocket</h1>
           <div className="flex flex-row space-x-4 ">
-            <h2 className="mt-1 sm:text-4xl mx-4 text-2xl ">Your project to the moon and back</h2>
-            <button className="bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md">
-              <a href="/joinSquad">Join squad</a>
-            </button>
-            <button className="bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md">
-              <a href="/hiresquad">Hire squad</a>
-            </button>
+            <h2 className="mt-1 sm:text-4xl mx-4 sm:mx-0 text-2xl ">Your project to the moon and back</h2>
+            <Link href="/joinSquad">
+              <button className="transition duration-500 bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105">
+                Join squad
+              </button>
+            </Link>
+            <Link href="/hiresquad">
+              <button
+                onClick={handleClick}
+                className="ransition duration-500 bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105">
+                Hire squad
+              </button>
+            </Link>
           </div>
         </div>
 
