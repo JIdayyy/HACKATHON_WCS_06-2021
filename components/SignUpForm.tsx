@@ -5,6 +5,7 @@ import Image from "next/image";
 import close from "../public/images/close.svg";
 import { createUser } from "../apollo/userQueries";
 import { useMutation, gql } from "@apollo/client";
+import { useRouter } from "next/router";
 export default function SignUpForm(): JSX.Element {
   const {
     register,
@@ -13,10 +14,10 @@ export default function SignUpForm(): JSX.Element {
     watch,
     getValues,
   } = useForm();
-
+  const router = useRouter();
   const [AddUser, { data }] = useMutation(createUser);
-  
-  const onSubmit = (data: { email: string; password: string }) =>
+
+  const onSubmit = (data: { email: string; password: string }) => {
     AddUser({
       variables: {
         user: {
@@ -25,6 +26,9 @@ export default function SignUpForm(): JSX.Element {
         },
       },
     });
+
+    router.push("/");
+  };
   return (
     <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
       <div className="w-screen h-screen flex flex-col justify-center absolute items-center bg-black bg-opacity-50">
