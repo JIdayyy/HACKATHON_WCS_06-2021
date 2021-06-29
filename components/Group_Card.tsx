@@ -20,7 +20,9 @@ export default function Group_Card({ id, name, description }: IProps) {
       </div>
       <div className="w-full">
         <Link href={`/squad/${id}`}>
-          <button className="text-sm font-bold bg-blue-400 rounded-md px-4 py-1">Meet the Squad</button>
+          <button className="ransition duration-500 text-sm font-bold bg-blue-400 rounded-md px-4 py-1 hover:-translate-y-1 hover:scale-105">
+            Meet the Squad
+          </button>
         </Link>
       </div>
     </div>
