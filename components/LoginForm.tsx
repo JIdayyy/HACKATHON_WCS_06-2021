@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import Image from "next/image";
 import close from "../public/images/close.svg";
-
+import axios from "axios";
 export default function LoginForm(): JSX.Element {
   const {
     register,
@@ -12,7 +12,9 @@ export default function LoginForm(): JSX.Element {
     watch,
     getValues,
   } = useForm();
-  const onSubmit = (data: object) => console.log(watch);
+  const onSubmit = (data: object) => {
+    axios.post('http://localhost:3000/api/auth')
+  };
   console.log(errors);
 
   const [show, setShow] = useState(false);
