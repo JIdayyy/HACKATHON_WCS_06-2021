@@ -6,9 +6,7 @@ export const allProjects = gql`
       id
       name
       url
-      Pictures {
-        url
-      }
+      squad_id
     }
   }
 `;
