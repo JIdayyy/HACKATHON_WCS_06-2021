@@ -27,8 +27,8 @@ export const getOneSquad = gql`
 `;
 
 export const squadById = gql`
-  query SquadById($id: uuid!) {
-    Squad(where: { BusinessSector: { id: { _eq: $id } } }) {
+  query SquadById($name: bpchar!) {
+    Squad(where: { BusinessSector: { name: { _eq: $name } } }) {
       id
       name
       description
