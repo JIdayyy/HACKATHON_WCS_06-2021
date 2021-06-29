@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface IProps {
   name: string;
@@ -14,7 +15,9 @@ export default function Group_Card({ name, description }: IProps) {
         <div className="text-xs">{description}</div>
       </div>
       <div className="w-full">
-        <button className="text-sm font-bold bg-blue-400 rounded-md px-4 py-1">Meet the Squad</button>
+        <Link href={`/squadProfil`}>
+          <button className="text-sm font-bold bg-blue-400 rounded-md px-4 py-1">Meet the Squad</button>
+        </Link>
       </div>
     </div>
   );
