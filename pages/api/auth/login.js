@@ -1,39 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import { gql } from "@apollo/client";
 import axios from "axios";
-const httpLink = createHttpLink({
-  uri: "https://fiverr-squad.hasura.app/v1/graphqlv",
-});
-
-const header = setContext((_, { headers }) => {
-  return {
-    headers: {
-      ...headers,
-      "content-type": "application/json",
-      "x-hasura-admin-secret":
-        "PjfyrUDJWBKdgA3529sHNwxOifZwefIYqN5Bk90zWb52XSYMr6CpkZXpSGYck8gC",
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: header.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-
-const login = gql`
-  query login($email: bpchar!) {
-    User(where: { email: { _eq: $email } }) {
-      id
-      email
-      password
-    }
-  }
-`;
-
 export default async function handler(req, res) {
   const { email, password } = req.body;
 

@@ -46,6 +46,8 @@ export const getOneSquad = gql`
           id
           firstname
           lastname
+          bio
+          avatar_url
         }
       }
     }
