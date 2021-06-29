@@ -41,9 +41,21 @@ export const getOneUser = gql`
       }
       user_squads {
         Squad {
+          id
           name
+          img_url
+          description
         }
       }
+    }
+  }
+`;
+export const login = gql`
+  query login($email: bpchar!) {
+    User(where: { email: { _eq: $email } }) {
+      id
+      email
+      password
     }
   }
 `;

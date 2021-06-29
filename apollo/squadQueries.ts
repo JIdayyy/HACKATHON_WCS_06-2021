@@ -14,6 +14,23 @@ export const getSquads = gql`
   }
 `;
 
+export const addUserToSquad = gql`mutation userSquad($userId: uuid!, $squadId: uuid!) {
+  insert_user_squad(objects: {user_id: $userId, squad_id: $squadId}){
+    returning{
+      Squad{
+        id
+        name
+      }
+      User{
+        id
+        firstname
+        lastname
+      }
+    }
+  }
+}
+`;
+
 export const getOneSquad = gql`
   query squad($id: uuid!) {
     Squad_by_pk(id: $id) {

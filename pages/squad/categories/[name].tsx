@@ -10,7 +10,6 @@ interface ISquad {
 }
 
 function squadCategorie(): JSX.Element {
-  ``;
   const router = useRouter();
   const { name } = router.query;
   const { data, loading } = useQuery(squadById, { variables: { name } });
@@ -19,8 +18,8 @@ function squadCategorie(): JSX.Element {
       <div className=" flex flex-col items-center sm:items-start sm:mx-0 w-full">
         <h1 className="text-white ml-10 sm:mt-10 sm:ml-0 w-full font-Open font-bold text-2xl">{name}</h1>
         <div className="flex mb-60 mt-4 sm:mt-2 justify-center sm:justify-start flex-wrap">
-          {data?.Squad.map((group: { id: string; name: string; description: string; index: number; img_url: string }) => {
-            return <Group_Card id={group.id} name={group.name} description={group.description} img_url={group.img_url} />;
+          {data && data?.Squad.map((group: { id: string; name: string; description: string; index: number; img_url: string },index: number) => {
+            return <Group_Card key={index} id={group.id} name={group.name} description={group.description} img_url={group.img_url} />;
           })}
         </div>
       </div>

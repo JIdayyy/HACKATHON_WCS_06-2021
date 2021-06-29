@@ -20,10 +20,7 @@ export default function SearchBar() {
         className="sm:w-6/12 w-full h-11 rounded-lg py-5 focus:outline-none outline-none text-white bg-white bg-opacity-20 px-4"
       />
       <button type="submit" className="bg-transparent">
-        <img
-          className="object-cover transform -translate-x-11 w-6 "
-          src="/vector.svg"
-        ></img>
+        <img className="object-cover transform mx-4 " src="/vector.svg"></img>
       </button>
     </form>
   );
