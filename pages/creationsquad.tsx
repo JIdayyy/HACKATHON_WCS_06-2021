@@ -14,8 +14,8 @@ export default function CreationSquad(): JSX.Element {
   console.log(errors);
 
   return (
-    <div className="flex flex-col text-white">
-      <div>
+    <div className="flex flex-col text-white ">
+      <div className="flex flex-col justify-center text-center">
         <h1>Create your Squad</h1>
         <form
           className="flex font-Open flex-col mt-3"
