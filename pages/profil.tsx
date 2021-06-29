@@ -1,23 +1,32 @@
+import Project_Card from "../components/Project_Card copy";
+import { fakeProject } from "../fakeData";
+
 export default function Profil() {
   return (
-    <div className="flex flex-col w-full  text-white items-center overflow-y-auto">
+    <div className="flex flex-col h-full pb-36   text-white items-center ">
       <div className="flex flex-col w-11/12 md:w-10/12 lg:w-8/12">
-        <div className="">
+        <div className="text-2xl">
           <h1>Welcome to Julia's profile</h1>
         </div>
-        <div className="flex flex-col">
-          <div className="h-40 w-40 bg-gray-500">photo</div>
-          <div className="">
-            INFOS
-            <h2>Julia Matth</h2>
-            <p>Translater English/ Polish</p>
-            <p>
-              Working in <a href="/squadProfil">IA translater Squad</a>
-            </p>
-            <a href="">Fiverr Profile</a>
+        <div className="flex flex-col items-center md:items-start">
+          <div className=" h-40 w-5/6 mt-2 bg-gray-500 rounded-md md:w-3/12">
+            photo
           </div>
         </div>
-        <div className="text-justify">
+        <div className="">
+          <h2 className="mt-5 text-lg font-bold">Julia Matth</h2>
+          <p className="">Translater English/ Polish</p>
+          <p>
+            Working in{" "}
+            <a href="/squadProfil" class="underline">
+              IA translater Squad
+            </a>
+          </p>
+          <a href="" class="underline">
+            Fiverr Profile
+          </a>
+        </div>
+        <div className="text-justify mt-10">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio at
             porttitor elit, luctus. Leo, dui egestas sit mi tellus et sed
@@ -31,14 +40,20 @@ export default function Profil() {
             quis aenean eu. Amet vitae aliquam iaculis integer amet, erat.{" "}
           </p>
         </div>
-        <div className="">
-          <button className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow">
+        <div className="flex justify-end">
+          <button className="rounded-md w-2/5 p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow">
             Contact
           </button>
         </div>
         <div className="">
-          <h2>Projects</h2>
-          <div>cards</div>
+          <h2 className="text-xl">Projects</h2>
+          <div>
+            <div className="flex flex-wrap w-full ">
+              {fakeProject.map((project, index) => {
+                return <Project_Card name={project.name} url={project.url} />;
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>
