@@ -15,35 +15,37 @@ export default function Profil() {
 
   return (
     <div className="flex flex-col h-full pb-36  text-white items-center sm:items-start  ">
-      <div className="flex flex-col w-11/12 sm:w-full lg:w-8/12">
+      <div className="flex flex-col w-11/12 sm:w-full lg:w-8/12 mt-10">
         <div className="text-2xl">
           <h1>Welcome to {data?.User_by_pk?.firstname}'s profile</h1>
         </div>
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex  items-center md:items-start flex-col sm:flex-row">
           <div
-            className=" h-60 w-5/6 mt-2 bg-gray-500 rounded-md md:w-3/12 md:h-60"
+            className=" h-60 w-5/6  mt-5 bg-gray-500 rounded-md md:w-3/12 md:h-60"
             style={{
               backgroundImage: `url(${data?.User_by_pk?.avatar_url})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           ></div>
-        </div>
-        <div className="">
-          <h2 className="mt-14 text-lg font-bold">
-            {data?.User_by_pk?.firstname} {data?.User_by_pk?.lastname}
-          </h2>
-          <p className="">Translater English/ Polish</p>
-          <p>
-            Working in{" "}
-            <a href="/squadProfil" className="underline">
-              IA translater Squad
+
+          <div className="ml-5">
+            <h2 className="mt-14 text-lg font-bold">
+              {data?.User_by_pk?.firstname} {data?.User_by_pk?.lastname}
+            </h2>
+            <p className="">Translater English/ Polish</p>
+            <p>
+              Working in
+              <a href="/squadProfil" className="underline">
+                IA translater Squad
+              </a>
+            </p>
+            <a href="" className="underline">
+              Fiverr Profile
             </a>
-          </p>
-          <a href="" className="underline">
-            Fiverr Profile
-          </a>
+          </div>
         </div>
+
         <div className="text-justify mt-10">
           <p>{`${data?.User_by_pk?.bio}`}</p>
         </div>
