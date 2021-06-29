@@ -1,9 +1,9 @@
-import { useQuery } from "@apollo/client";
-import { useRouter } from "next/dist/client/router";
-import { getOneUser } from "../../apollo/userQueries";
-import Project_Card from "../../components/Project_Card copy";
-import { fakeProject } from "../../fakeData";
-import Image from "next/image";
+import { useQuery } from '@apollo/client';
+import { useRouter } from 'next/dist/client/router';
+import { getOneUser } from '../../apollo/userQueries';
+import Project_Card from '../../components/Project_Card copy';
+import { fakeProject } from '../../fakeData';
+import Image from 'next/image';
 
 export default function Profil() {
   const router = useRouter();
@@ -24,10 +24,9 @@ export default function Profil() {
             className=" h-60 w-5/6  mt-5 bg-gray-500 rounded-md md:w-3/12 md:h-60"
             style={{
               backgroundImage: `url(${data?.User_by_pk?.avatar_url})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}></div>
 
           <div className="ml-5">
             <h2 className="mt-14 text-lg font-bold">
@@ -50,16 +49,14 @@ export default function Profil() {
           <p>{`${data?.User_by_pk?.bio}`}</p>
         </div>
         <div className="flex justify-end">
-          <button className="rounded-md w-2/5 p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow sm:w-1/5">
-            Contact
-          </button>
+          <button className="rounded-md w-2/5 p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow sm:w-1/5">Contact</button>
         </div>
         <div className="">
           <h2 className="text-xl">Projects</h2>
           <div>
             <div className="flex flex-wrap w-full ">
               {fakeProject.map((project, index) => {
-                return <Project_Card name={project.name} url={project.url} />;
+                return <Project_Card key={index} name={project.name} url={project.url} />;
               })}
             </div>
           </div>
