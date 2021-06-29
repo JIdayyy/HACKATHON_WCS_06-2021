@@ -18,11 +18,11 @@ export default function Profil() {
           <p className="">Translater English/ Polish</p>
           <p>
             Working in{" "}
-            <a href="/squadProfil" class="underline">
+            <a href="/squadProfil" className="underline">
               IA translater Squad
             </a>
           </p>
-          <a href="" class="underline">
+          <a href="" className="underline">
             Fiverr Profile
           </a>
         </div>

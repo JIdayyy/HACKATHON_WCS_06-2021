@@ -10,7 +10,7 @@ function squad() {
   return (
     <div className="h-screen overflow-y-auto w-full  ">
       <div className=" flex flex-col items-center w-full">
-        <div className="ease-in-out flex mb-60 justify-center sm:justify-start flex-wrap">
+        <div className=" flex mb-60 justify-center sm:justify-start flex-wrap">
           {data?.Squad.map(
             (
               group: { id: string; name: string; description: string },

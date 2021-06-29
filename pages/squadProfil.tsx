@@ -70,9 +70,6 @@ function squad() {
           <div className="flex justify-center sm:justify-start flex-wrap ">
             We are looking to expand our Squad
           </div>
-          <div className="flex justify-center sm:justify-start h-60 w-11/12 bg-gray-500 ">
-            Hiring opportunities
-          </div>
           <div className="flex justify-center text-justify w-11/12">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio at
@@ -86,6 +83,20 @@ function squad() {
               Gravida eget auctor euismod risus ultrices. Aliquet volutpat risus
               quis aenean eu. Amet vitae aliquam iaculis integer amet, erat.
             </p>
+          </div>
+          <div className="flex justify-center sm:justify-start h-60 w-11/12 ">
+            <div className="flex flex-wrap ">
+              {freelancers.map((squad, index) => {
+                return (
+                  <Freelance_Card
+                    name={squad.name}
+                    job={squad.job}
+                    description={squad.description}
+                    business={squad.business}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

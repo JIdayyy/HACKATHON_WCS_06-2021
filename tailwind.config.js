@@ -26,7 +26,7 @@ module.exports = {
         sm: "1000px",
       },
       width: {
-        sideBar: "40%",
+        sideBar: "20%",
       },
     },
   },
