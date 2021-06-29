@@ -9,6 +9,15 @@ export const getAllUsers = gql`
   }
 `;
 
+export const createUser = gql`
+  mutation CreateUser($user: User_insert_input!) {
+    insert_User_one(object: $user) {
+      id
+      email
+    }
+  }
+`;
+
 export const getOneUser = gql`
   query user($id: uuid!) {
     User_by_pk(id: $id) {
