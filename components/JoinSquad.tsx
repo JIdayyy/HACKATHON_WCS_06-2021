@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, SetStateAction } from 'react';
 import { useForm } from 'react-hook-form';
+import { useMutation } from '@apollo/client';
 import Link from 'next/link';
 import Image from 'next/image';
-import close from '../public/images/close.svg';
+import { addUserToSquad } from '../apollo/squadQueries';
 
-export default function JoinSquad() {
+import { Dispatch } from 'react';
+
+
+interface IProps{
+  setIsJoinForm: Dispatch<SetStateAction<boolean>>,
+  id: string | string[],
+}
+
+export default function JoinSquad({setIsJoinForm,id} : IProps):JSX.Element {
   const {
     register,
     handleSubmit,
@@ -12,13 +21,18 @@ export default function JoinSquad() {
     watch,
     getValues,
   } = useForm();
-  const onSubmit = (data: object) => console.log(watch);
-  console.log(errors);
+  console.log(id)
+  const onSubmit = (data: object) => {addUser({variables: {userId: "8685232e-ec66-452c-8d07-daa0ab9d954f", squadId: id}
+})};
+
+  const [addUser, {data}]= useMutation(addUserToSquad)
+
+
 
   const [show, setShow] = useState(false);
 
   return (
-    <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
+    <div className="w-screen h-screen fixed bg-backGround bg-no-repeat bg-cover top-0 left-0 z-50">
       <div className="w-screen h-screen flex flex-col justify-center absolute items-center bg-black bg-opacity-50">
         <div className="w-11/12 flex flex-col  rounded-lg p-8 md:p-12 bg-backGround bg-cover sm:w-6/12 shadow-inputShadow">
           <div className="flex w-full justify-between">
@@ -27,9 +41,9 @@ export default function JoinSquad() {
                 <p className="text-white font-Open text-4xl font-bold">Space Rocket</p>
                 <p className="text-white text-xl">is looking for a new crew member</p>
               </div>
-              <Link href="/squad">
-                <Image className="cursor-pointer" src={close} width={20} height={20} alt="close" />
-              </Link>
+              
+                <Image onClick={() => setIsJoinForm((c) => !c)} className="cursor-pointer" src="/images/close.svg" width={20} height={20} alt="close" />
+              
             </div>
           </div>
 
