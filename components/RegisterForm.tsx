@@ -1,4 +1,4 @@
-export default function LoginForm(params) {
+export default function LoginForm() {
     return(
         
         <div className="text-white p-10 rounded-md">
