@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const getSquads = gql`
-  query AllSquads() {
+  query AllSquads {
     Squad {
       id
       name
