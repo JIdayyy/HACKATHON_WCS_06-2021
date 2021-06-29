@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import Image from 'next/image';
 import close from '../public/images/close.svg';
+import { fakeCatégorie } from '../fakeData';
 
 interface IProps {
   isSideBarVisible: boolean;
@@ -18,6 +19,13 @@ export default function Sidebar({ isSideBarVisible, setIsSideBarVisible }: IProp
           ? 'w-screen h-screen absolute top-0  left-0 z-50 transform flex bg-opacity-75 bg-black'
           : 'w-sideBar z-50 transform hidden sm:flex  bg-opacity-75 bg-black'
       }>
+      {fakeCatégorie.map((ct) => {
+        return (
+          <div>
+            <p>{ct.name}</p>
+          </div>
+        );
+      })}
       <button onClick={handleClick}>
         <Image src={close} height={25} width={25} alt="cross" />
       </button>
