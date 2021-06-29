@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import close from "../public/images/close.svg";
 
-export default function JoinSquad() {
+export default function HireSquad() {
   const {
     register,
     handleSubmit,
@@ -28,7 +28,7 @@ export default function JoinSquad() {
                   Space Rocket
                 </p>
                 <p className="text-white text-xl">
-                  is looking for a new crew member
+                  would gladly work with you, contact us!
                 </p>
               </div>
               <Link href="/squadProfil">
