@@ -4,7 +4,7 @@ import { fakeProject } from "../fakeData";
 export default function Profil() {
   return (
     <div className="flex flex-col h-full pb-36  text-white items-center sm:items-start  ">
-      <div className="flex flex-col w-11/12 sm:w-3/12 lg:w-8/12">
+      <div className="flex flex-col w-11/12 sm:w-full lg:w-8/12">
         <div className="text-2xl">
           <h1>Welcome to Julia's profile</h1>
         </div>
