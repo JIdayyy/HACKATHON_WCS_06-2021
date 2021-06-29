@@ -62,11 +62,9 @@ export default function JoinSquad() {
               {...register("email", {})}
             />
             <p className="text-white mt-3">Let us a message</p>
-            <input
-              className="rounded-md h-20 text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
-              type="text"
-              placeholder="Hello my name is..."
-              {...register("name", {})}
+            <textarea
+              className="h-36 rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
+              {...register("message", { maxLength: 500 })}
             />
 
             <input
