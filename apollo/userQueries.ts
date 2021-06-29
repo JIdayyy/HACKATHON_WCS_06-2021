@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const getAllUsers = gql`
   query users {
@@ -41,7 +41,10 @@ export const getOneUser = gql`
       }
       user_squads {
         Squad {
+          id
           name
+          img_url
+          description
         }
       }
     }
