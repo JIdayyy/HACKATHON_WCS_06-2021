@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import Image from "next/image";
 import close from "../public/images/close.svg";
-import {createUser} from '../apollo/userQueries'
-import { useMutation,gql } from '@apollo/client';
+import { createUser } from "../apollo/userQueries";
+import { useMutation, gql } from "@apollo/client";
 export default function SignUpForm(): JSX.Element {
   const {
     register,
@@ -15,10 +15,16 @@ export default function SignUpForm(): JSX.Element {
   } = useForm();
 
   const [AddUser, { data }] = useMutation(createUser);
-  console.log(data)
-  const onSubmit = (data:{email: string, password: string}) => AddUser({variables: {user : {
-email: data.email, password: data.password
-  }}});
+  
+  const onSubmit = (data: { email: string; password: string }) =>
+    AddUser({
+      variables: {
+        user: {
+          email: data.email,
+          password: data.password,
+        },
+      },
+    });
   return (
     <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
       <div className="w-screen h-screen flex flex-col justify-center absolute items-center bg-black bg-opacity-50">
@@ -53,7 +59,6 @@ email: data.email, password: data.password
             <input
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
-            
               {...register("email", {})}
             />
             <label className="text-white mt-3">Password</label>
@@ -61,7 +66,6 @@ email: data.email, password: data.password
             <input
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
               type="text"
-             
               {...register("password", {
                 required: "Specify your password",
                 minLength: {
@@ -77,7 +81,6 @@ email: data.email, password: data.password
             <input
               className="rounded-md text-white bg-grayinput bg-opacity-30 focus:outline-none shadow-inputShadow p-2"
               type="text"
-             
               {...register("passwordConfirmation", {
                 required: "Please confirm password!",
                 validate: {

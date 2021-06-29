@@ -14,8 +14,6 @@ mutation CreateUser($user: User_insert_input!) {
   insert_User_one(object: $user) {
     id
     email
-    
-    
   }
 }
 `;
