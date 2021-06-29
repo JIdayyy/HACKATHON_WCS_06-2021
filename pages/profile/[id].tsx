@@ -19,7 +19,7 @@ export default function Profil() {
         <div className="text-2xl">
           <h1>Welcome to {data?.User_by_pk?.firstname}'s profile</h1>
         </div>
-        <div className="flex  items-center md:items-start">
+        <div className="flex  items-center md:items-start flex-col sm:flex-row">
           <div
             className=" h-60 w-5/6  mt-5 bg-gray-500 rounded-md md:w-3/12 md:h-60"
             style={{
