@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const getSquads = gql`
-  query AllSquads {
+  query AllSquads() {
     Squad {
       id
       name
@@ -22,6 +22,20 @@ export const getOneSquad = gql`
         name
       }
       description
+    }
+  }
+`;
+
+export const squadById = gql`
+  query SquadById($id: uuid!) {
+    Squad(where: { BusinessSector: { id: { _eq: $id } } }) {
+      id
+      name
+      description
+      BusinessSector {
+        id
+        name
+      }
     }
   }
 `;
