@@ -22,7 +22,7 @@ function SquadTeamProfil() {
             <a href="/joinSquad">Join squad</a>
           </button>
           <button className="bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md">
-            <a href="">Hire squad</a>
+            <a href="/hiresquad">Hire squad</a>
           </button>
         </div>
       </div>
