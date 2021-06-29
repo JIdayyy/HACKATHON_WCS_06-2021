@@ -1,5 +1,4 @@
 import React from 'react';
-import { fakeSquad } from '../../fakeData';
 import Group_Card from '../../components/Group_Card';
 import { useQuery } from '@apollo/client';
 import { getSquads } from '../../apollo/squadQueries';
