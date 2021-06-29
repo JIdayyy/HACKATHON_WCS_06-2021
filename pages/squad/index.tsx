@@ -6,7 +6,7 @@ import { getSquads } from '../../apollo/squadQueries';
 function squad() {
   const { data, loading } = useQuery(getSquads);
   return (
-    <div className="h-screen overflow-y-auto w-full  ">
+    <div className="h-screen overflow-y-auto w-full mt-10">
       <div className=" flex flex-col items-center w-full">
         <div className="ease-in-out flex mb-60 justify-center sm:justify-start flex-wrap">
           {data?.Squad.map((group: { id: string; name: string; description: string; index: number; img_url: string }) => {

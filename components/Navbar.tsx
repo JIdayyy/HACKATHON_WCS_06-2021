@@ -1,15 +1,11 @@
-import Image from "next/image";
-import Log from "../public/LogIn.svg";
-import SearchBar from "./SearchBar";
-import burger from "../public/burger.svg";
-import { SetStateAction, Dispatch } from "react";
-import { set } from "react-hook-form";
+import Image from 'next/image';
+import Log from '../public/LogIn.svg';
+import SearchBar from './SearchBar';
+import burger from '../public/burger.svg';
+import { SetStateAction, Dispatch } from 'react';
+import Link from 'next/link';
 
-export default function Navbar({
-  setIsSideBarVisible,
-}: {
-  setIsSideBarVisible: Dispatch<SetStateAction<boolean>>;
-}) {
+export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: Dispatch<SetStateAction<boolean>> }) {
   const handleClick = () => {
     setIsSideBarVisible(true);
   };
@@ -21,11 +17,12 @@ export default function Navbar({
       <SearchBar />
       <div className="flex items-end sm:items-center justify-between w-full sm:justify-end sm:w-2/12 px-2 mt-10 sm:mt-0">
         <div className="flex flex-row-reverse sm:flex-row items-end sm:items-start">
-          <h1 className="sm:text-xl font-bold ml-2 sm:ml-0 sm:mr-2 ">Thomas Barrial</h1>
-          <Image className="" src={Log} height={25} width={25} alt="log" />
+          <Link href="/profile/4fc11ed8-d7b6-469d-a1c3-df92881431a3">
+            <Image className="cursor-pointer" src={Log} height={25} width={25} alt="log" />
+          </Link>
         </div>
         <button className="focus:outline-none sm:hidden" onClick={handleClick}>
-          <Image src={burger} alt="burger" />{" "}
+          <Image src={burger} alt="burger" />{' '}
         </button>
       </div>
     </div>
