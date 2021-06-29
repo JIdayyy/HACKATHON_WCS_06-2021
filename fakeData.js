@@ -176,7 +176,7 @@ export const fakeSquad = [
   },
 ];
 
-const FakeCatégorie = [
+export const FakeCatégorie = [
   {
     name: 'Graphics & Design',
   },
