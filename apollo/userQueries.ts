@@ -40,16 +40,7 @@ export const getOneUser = gql`
   }
 `;
 
-export const createUser = gql`
-  mutation user($user: User_insert_input!) {
-    insert_User_one(objects: $user) {
-      returning {
-        id
-        email
-      }
-    }
-  }
-`;
+export const createUser = gql``;
 
 export const updateUser = gql`
   mutation updateUser($id: uuid!, user: User_set_input){

@@ -22,6 +22,13 @@ export const getOneSquad = gql`
         name
       }
       description
+      users {
+        User {
+          id
+          firstname
+          lastname
+        }
+      }
     }
   }
 `;
@@ -31,10 +38,34 @@ export const squadById = gql`
     Squad(where: { BusinessSector: { id: { _eq: $id } } }) {
       id
       name
-      description
       BusinessSector {
-        id
         name
+      }
+      description
+      users {
+        User {
+          id
+          firstname
+          lastname
+        }
+      }
+    }
+  }
+`;
+
+export const updateUserSquad = gql`
+  mutation updateUserSquad($squadId: uuid!, $userId: uuid!) {
+    insert_user_squad(objects: { squad_id: $squadId, user_id: $userId }) {
+      returning {
+        Squad {
+          id
+          name
+        }
+        User {
+          id
+          firstname
+          lastname
+        }
       }
     }
   }
