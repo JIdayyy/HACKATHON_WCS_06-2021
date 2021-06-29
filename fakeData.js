@@ -1,204 +1,179 @@
 export const fakeSquad = [
   {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
-  },
-  {
-    name: 'Space-X',
-    buisness: 'Web Development',
-    description: 'Ma super description',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
 ];
 
-const FakeCatégorie = [
+export const freelancers = [
   {
-    name: 'Graphics & Design',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: ' Digital Marketing',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: ' Writing & Translation',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: ' Video & Animation',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: 'Music & Audio',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
   },
   {
-    name: 'Programming & Tech',
+    name: "Space-X",
+    business: "Web Development",
+    description: "Ma super description",
+    job: "Web designer",
+  },
+];
+
+export const fakeProject = [
+  {
+    name: "My Super Project",
+    url: "www.project.com",
+    Pictures: [
+      {
+        url: "www.test.com",
+      },
+    ],
   },
   {
-    name: 'Datanew',
+    name: "My Super Project",
+    url: "www.project.com",
+    Pictures: [
+      {
+        url: "www.test.com",
+      },
+    ],
   },
   {
-    name: 'Business',
+    name: "My Super Project",
+    url: "www.project.com",
+    Pictures: [
+      {
+        url: "www.test.com",
+      },
+    ],
+  },
+  {
+    name: "My Super Project",
+    url: "www.project.com",
+    Pictures: [
+      {
+        url: "www.test.com",
+      },
+    ],
+  },
+  {
+    name: "My Super Project",
+    url: "www.project.com",
+    Pictures: [
+      {
+        url: "www.test.com",
+      },
+    ],
+  },
+  {
+    name: "My Super Project",
+    url: "www.project.com",
+    Pictures: [
+      {
+        url: "www.test.com",
+      },
+    ],
+  },
+  {
+    name: "My Super Project",
+    url: "www.project.com",
+    Pictures: [
+      {
+        url: "www.test.com",
+      },
+    ],
+  },
+  {
+    name: "My Super Project",
+    url: "www.project.com",
+    Pictures: [
+      {
+        url: "www.test.com",
+      },
+    ],
+  },
+];
+
+export const FakeCatégorie = [
+  {
+    name: "Graphics & Design",
+  },
+  {
+    name: " Digital Marketing",
+  },
+  {
+    name: " Writing & Translation",
+  },
+  {
+    name: " Video & Animation",
+  },
+  {
+    name: "Music & Audio",
+  },
+  {
+    name: "Programming & Tech",
+  },
+  {
+    name: "Datanew",
+  },
+  {
+    name: "Business",
   },
 ];

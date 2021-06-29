@@ -22,6 +22,27 @@ export const getOneSquad = gql`
         name
       }
       description
+      users {
+        User {
+          id
+          firstname
+          lastname
+        }
+      }
+    }
+  }
+`;
+
+export const squadById = gql`
+  query SquadById($name: bpchar!) {
+    Squad(where: { BusinessSector: { name: { _eq: $name } } }) {
+      id
+      name
+      description
+      BusinessSector {
+        id
+        name
+      }
     }
   }
 `;
