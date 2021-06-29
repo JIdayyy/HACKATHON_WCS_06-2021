@@ -31,7 +31,7 @@ export default function JoinSquad() {
                   is looking for a new crew member
                 </p>
               </div>
-              <Link href="/">
+              <Link href="/squadProfil">
                 <Image
                   className="cursor-pointer"
                   src={close}
