@@ -9,12 +9,8 @@ interface IProps {
 
 export default function Freelance_Card({ id }: IProps) {
   console.log(id);
-  // if (id === undefined) {
-  //   <p>error</p>;
-  // } else {
-  //   const { data, loading } = useQuery(getOneUser, { variables: { id } });
-  //   console.log(data);
-  // }
+  const { data, loading } = useQuery(getOneUser, { variables: { id } });
+  console.log(data);
 
   return (
     <div className=" transition duration-500   h-96 bg-white bg-blur-xl bg-opacity-20 m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white transform hover:-translate-y-1 hover:scale-110">

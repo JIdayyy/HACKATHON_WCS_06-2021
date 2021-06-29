@@ -12,7 +12,7 @@ export default function Group_Card({ id, name, description, img_url }: IProps) {
   return (
     <div className=" transition duration-500 w-11/12 sm:w-60 h-96 bg-white bg-blur-xl bg-opacity-20 m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white transform hover:-translate-y-1 hover:scale-110">
       <div
-        className="h-60 w-52 rounded-md shadow-buttonShadow"
+        className="sm:h-60 sm:w-52 w-80 h-80 rounded-md shadow-buttonShadow"
         style={{
           backgroundImage: `url(${img_url})`,
           backgroundSize: 'cover',

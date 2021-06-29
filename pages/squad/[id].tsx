@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Freelance_Card from '../../components/Freelance_Card';
 import Project_Card from '../../components/Project_Card copy';
 import { fakeProject } from '../../fakeData';
@@ -6,6 +7,13 @@ import { useRouter } from 'next/dist/client/router';
 import { getOneSquad } from '../../apollo/squadQueries';
 import { useQuery } from '@apollo/client';
 import Link from 'next/link';
+
+interface IUser {
+  firstname: string;
+  lastname: string;
+  bio: string;
+  avatar_url: string;
+}
 
 function squad() {
   const router = useRouter();
@@ -48,8 +56,29 @@ function squad() {
         <div className=" flex w-full flex-col justify-center space-y-5 mt-20 ">
           <div className="flex flex-wrap ">
             {squadeData &&
-              squadeData?.Squad_by_pk?.User?.map((user: { id: string }, index: number) => {
-                return <Freelance_Card key={index} id={user.id} />;
+              squadeData?.Squad_by_pk?.users?.map((user: { User: IUser }, index: number) => {
+                return (
+                  <div className=" transition duration-500 w-60  h-96 bg-white bg-blur-xl bg-opacity-20 m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white transform hover:-translate-y-1 hover:scale-110">
+                    <div
+                      className="sm:h-60 sm:w-52 w-80 h-80 rounded-md shadow-buttonShadow"
+                      style={{
+                        backgroundImage: `url(${user.User.avatar_url})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }}></div>
+                    <div className="w-full h-full flex flex-col items-left align-middle justify-center">
+                      <div className="flex">
+                        <p className="text-xl font-bold">{user.User.firstname} / </p>
+                        <p className="text-xl font-bold">{user.User.lastname}</p>
+                      </div>
+                      <p className="text-xs overflow-hidden h-20 mt-2">{user.User.bio}</p>
+                      <div className="text-xs"></div>
+                    </div>
+                    <div className="w-full">
+                      <button className="text-sm font-bold bg-blue-400 rounded-xl px-4 py-1">Fiverr Profil</button>
+                    </div>
+                  </div>
+                );
               })}
           </div>
           <div className="flex justify-center text-justify w-11/12">
