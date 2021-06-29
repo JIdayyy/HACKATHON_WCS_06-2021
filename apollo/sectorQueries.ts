@@ -14,13 +14,12 @@ export const getAllSectors = gql`
 `;
 
 export const getOneSector = gql`
-  query user($id: uuid!){
-    User_by_pk(id: $id){
-      id,
-      firstname,
-      lastname,
+  query user($id: uuid!) {
+    User_by_pk(id: $id) {
+      id
+      firstname
+      lastname
       email
-    }
     }
   }
 `;
@@ -32,15 +31,4 @@ export const createSector = gql`
       name
     }
   }
-`;
-
-export const updateSector = gql`
-  mutation updateUser($id: uuid!, user: User_set_input){
-    update_User_by_pk(pk_columns: {$id}, _set: $user){
-      id,
-      firstname,
-      lastname,
-      email
-    }
-    }
 `;
