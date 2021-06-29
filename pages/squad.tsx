@@ -19,9 +19,9 @@ function squad() {
             return (
               <Group_Card
                 key={index}
-                name={fakeSquad[0].name}
-                buisness={fakeSquad[0].buisness}
-                description={fakeSquad[0].description}
+                name={group.name}
+                buisness={group.business}
+                description={group.description}
               />
             );
           })}
