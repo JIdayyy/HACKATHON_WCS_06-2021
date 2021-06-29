@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import Image from 'next/image';
 import close from '../public/images/close.svg';
-import { FakeCatégorie } from '../fakeData';
 import { useQuery } from '@apollo/client';
 import { getAllSectors } from '../apollo/sectorQueries';
 import Link from 'next/link';
@@ -22,8 +21,6 @@ export default function Sidebar({ isSideBarVisible, setIsSideBarVisible }: IProp
   const handleClick = () => {
     setIsSideBarVisible(false);
   };
-
-  console.log(data);
 
   return (
     <div

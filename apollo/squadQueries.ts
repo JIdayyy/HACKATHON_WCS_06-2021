@@ -22,6 +22,13 @@ export const getOneSquad = gql`
         name
       }
       description
+      users {
+        User {
+          id
+          firstname
+          lastname
+        }
+      }
     }
   }
 `;
