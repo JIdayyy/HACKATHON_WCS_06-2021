@@ -5,21 +5,26 @@ import { fakeProject } from '../../fakeData';
 import { useRouter } from 'next/dist/client/router';
 import { getOneSquad } from '../../apollo/squadQueries';
 import { useQuery } from '@apollo/client';
+import {useState} from 'react'
+import JoinSquad from '../../components/JoinSquad'
 import Link from 'next/link';
 
-function squad() {
+function squad(): JSX.Element {
   const router = useRouter();
   const { id } = router.query;
-  const { data: squadeData, loading } = useQuery(getOneSquad, { variables: { id } });
-  // const { data: projectData, loading} = useQuery(getAllProject, variables: {id})
-  console.log(squadeData);
+  const { data: squadData, loading } = useQuery(getOneSquad, { variables: { id } });
+  const [isJoinForm, setIsJoinForm] = useState<boolean>(false)
+
+
+const {id : myId} = router.query
 
   const handleClick = () => {
     window.history.back();
   };
-
+console.log(squadData)
   return (
     <div className="  overflow-y-auto w-full h-screen ">
+        {isJoinForm && <JoinSquad id={myId} setIsJoinForm={setIsJoinForm}/>}
       <div className=" w-full text-white mb-40">
         <div className="flex justify-end mr-14">
           <Link href="/squad">
@@ -27,18 +32,18 @@ function squad() {
           </Link>
         </div>
         <div>
-          <h1 className="sm:text-7xl text-6xl mx-4 sm:mx-0 font-bold">Space Rocket</h1>
+          <h1 className="sm:text-7xl text-6xl mx-4 sm:mx-0 font-bold">{squadData && squadData.Squad_by_pk.name}</h1>
           <div className="flex flex-row space-x-4 ">
-            <h2 className="mt-1 sm:text-4xl mx-4 sm:mx-0 text-2xl ">Your project to the moon and back</h2>
-            <Link href="/joinSquad">
-              <button className="transition duration-500 bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105">
+            <h2 className="mt-1 sm:text-base mx-4 sm:mx-0  ">{squadData && squadData.Squad_by_pk.description}</h2>
+           
+              <button onClick={() => setIsJoinForm(!isJoinForm)} className="transition duration-500 bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 h-16 hover:scale-105">
                 Join squad
               </button>
-            </Link>
+          
             <Link href="/hiresquad">
               <button
                 onClick={handleClick}
-                className="ransition duration-500 bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105">
+                className="ransition duration-500 h-16  bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105">
                 Hire squad
               </button>
             </Link>
@@ -47,8 +52,8 @@ function squad() {
 
         <div className=" flex w-full flex-col justify-center space-y-5 mt-20 ">
           <div className="flex flex-wrap ">
-            {squadeData &&
-              squadeData?.Squad_by_pk?.User?.map((user: { id: string }, index: number) => {
+            {squadData &&
+              squadData?.Squad_by_pk?.User?.map((user: { id: string }, index: number) => {
                 return <Freelance_Card key={index} id={user.id} />;
               })}
           </div>
@@ -66,7 +71,7 @@ function squad() {
           <div className="flex justify-center sm:justify-start flex-wrap ">Space Rocket worked on this projects</div>
           <div className="flex flex-wrap ">
             {fakeProject.map((project, index) => {
-              return <Project_Card name={project.name} url={project.url} />;
+              return <Project_Card key={index} name={project.name} url={project.url} />;
             })}
           </div>
         </div>
