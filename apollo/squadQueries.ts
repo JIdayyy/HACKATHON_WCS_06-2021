@@ -51,3 +51,21 @@ export const squadById = gql`
     }
   }
 `;
+
+export const searchSquad = gql`
+  query searchSquad($filter: bpchar) {
+    Squad(
+      where: {
+        _or: [
+          { name: { _ilike: $filter } }
+          { BusinessSector: { name: { _ilike: $filter } } }
+        ]
+      }
+    ) {
+      id
+      name
+      description
+      img_url
+    }
+  }
+`;

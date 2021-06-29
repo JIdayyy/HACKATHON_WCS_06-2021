@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import Link from "next/link";
-import Image from "next/image";
-import close from "../public/images/close.svg";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Link from 'next/link';
+import Image from 'next/image';
+import close from '../public/images/close.svg';
 
 export default function LoginForm(): JSX.Element {
   const {
@@ -12,8 +12,7 @@ export default function LoginForm(): JSX.Element {
     watch,
     getValues,
   } = useForm();
-  const onSubmit = (data: object) => console.log(watch);
-  console.log(errors);
+  const onSubmit = (data: object) => console.log(data);
 
   const [show, setShow] = useState(false);
 
@@ -50,7 +49,7 @@ export default function LoginForm(): JSX.Element {
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="email@email.com"
-              {...register("email", {})}
+              {...register('email', {})}
             />
             <label className="text-white mt-3">Password</label>
 
@@ -58,50 +57,19 @@ export default function LoginForm(): JSX.Element {
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="password"
-              {...register("password", {
-                required: "Specify your password",
-                minLength: {
-                  value: 10,
-                  message: "Password must have at least 10 characters",
-                },
+              {...register('password', {
+                required: 'Specify your password',
               })}
             />
             {errors.password && (
-              <p style={{ color: "white" }}>{errors.password.message}</p>
-            )}
-            <label className="text-white mt-3">Confirm Password</label>
-            <input
-              className="rounded-md text-white bg-grayinput bg-opacity-30 focus:outline-none shadow-inputShadow p-2"
-              type="text"
-              placeholder="confirm password"
-              {...register("passwordConfirmation", {
-                required: "Please confirm password!",
-                validate: {
-                  matchesPreviousPassword: (value) => {
-                    const { password } = getValues();
-                    return password === value || "Passwords should match!";
-                  },
-                },
-              })}
-            />
-            {errors.passwordConfirmation && (
-              <p style={{ color: "white" }}>
-                {errors.passwordConfirmation.message}
-              </p>
+              <p style={{ color: 'white' }}>{errors.password.message}</p>
             )}
             <input
               className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"
               value="Connect"
-              onClick={handleSubmit(onSubmit)}
             />
             <div className="flex flex-col text-center mt-2 mb-8 text-white">
-              <p className="text-xs">
-                {"Don't have an account? "}
-                <span className="text-blue-500">
-                  <a href="/signup">Sign up</a>
-                </span>
-              </p>
               <p className="text-xs">
                 Forgot Password?
                 <span className="text-blue-500">New password</span>
