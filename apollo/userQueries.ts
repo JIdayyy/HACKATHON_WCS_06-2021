@@ -1,12 +1,11 @@
 import { gql } from '@apollo/client';
 
 export const getAllUsers = gql`
-  query users{
-      id,
-      lastname,
-      firstname,
-      email,
-    }
+  query users {
+    id
+    lastname
+    firstname
+    email
   }
 `;
 
