@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const getAllUsers = gql`
   query users {
@@ -38,14 +38,15 @@ export const getOneUser = gql`
     }
   }
 `;
-export const login = gql`query login($email: bpchar!){
-  User(where: {email: {_eq: $email}}){
-    id,
-    email,
-    password,
-    
+export const login = gql`
+  query login($email: bpchar!) {
+    User(where: { email: { _eq: $email } }) {
+      id
+      email
+      password
+    }
   }
-}`
+`;
 
 export const updateUser = gql`
   mutation updateUser($id: uuid!, user: User_set_input){
