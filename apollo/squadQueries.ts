@@ -6,6 +6,7 @@ export const getSquads = gql`
       id
       name
       description
+      img_url
       BusinessSector {
         name
       }
@@ -18,6 +19,7 @@ export const getOneSquad = gql`
     Squad_by_pk(id: $id) {
       id
       name
+      img_url
       BusinessSector {
         name
       }
@@ -27,6 +29,8 @@ export const getOneSquad = gql`
           id
           firstname
           lastname
+          bio
+          avatar_url
         }
       }
     }
@@ -39,6 +43,7 @@ export const squadById = gql`
       id
       name
       description
+      img_url
       BusinessSector {
         id
         name

@@ -33,12 +33,19 @@ export default function Sidebar({ isSideBarVisible, setIsSideBarVisible }: IProp
         <Image src={close} height={25} width={25} alt="cross" />
       </button>
       <div className="flex flex-col font-Montserrat text-white font-open ">
+        <Link href="/squad">
+          <button className="transition duration-500 w-full flex items-start hover hover:-translate-y-1 hover:scale-110" onClick={handleClick}>
+            All catégories
+          </button>
+        </Link>
         {data &&
           data.BusinessSector.map((sector: Sector, index: number) => {
             return (
               <div key={index} className="mt-8">
                 <Link href={`/squad/categories/${sector.name}`}>
-                  <button className="transition duration-500 text-lg text-gray-300 hover:text-white hover hover:-translate-y-1 hover:scale-110">
+                  <button
+                    onClick={handleClick}
+                    className="transition duration-500 text-lg text-gray-300 hover:text-white hover hover:-translate-y-1 hover:scale-110">
                     {sector.name}
                   </button>
                 </Link>

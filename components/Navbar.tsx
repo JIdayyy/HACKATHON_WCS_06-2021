@@ -14,8 +14,8 @@ export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: D
       <div className="sm:text-4xl text-4xl font-bold mr-5">Fiverr. Squad</div>
       <SearchBar />
       <div className="flex items-end sm:items-center justify-between w-full sm:justify-end sm:w-2/12 px-2 mt-10 sm:mt-0">
-        <div className="flex items-end sm:items-start">
-          <h1 className="sm:text-xl font-bold mr-2 ">Thomas Barrial</h1>
+        <div className="flex flex-row-reverse sm:flex-row items-end sm:items-start">
+          <h1 className="sm:text-xl font-bold ml-2 sm:ml-0 sm:mr-2 ">Thomas Barrial</h1>
           <Image className="" src={Log} height={25} width={25} alt="log" />
         </div>
         <button className="focus:outline-none sm:hidden" onClick={handleClick}>

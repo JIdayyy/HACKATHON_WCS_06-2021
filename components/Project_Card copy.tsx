@@ -1,23 +1,25 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 interface IProps {
+  key: number;
   name: string;
   url: string;
 }
 
-export default function Project_Card({ name, url }: IProps) {
+export default function Project_Card({ key, name, url }: IProps) {
   return (
-    <div className=" transition duration-500  w-full sm:w-60 h-96 bg-white bg-blur-xl bg-opacity-20 m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white transform hover:-translate-y-1 hover:scale-110">
-      <Image width={130} height={230} src="/profile_placeholder.png" />
-      <div className="w-full h-full flex flex-col items-left align-middle justify-center">
-        <div className="text-2xl">{name}</div>
-        <div className="text-xl">{url}</div>
-      </div>
-      <div className="w-60">
-        <button className="text-sm font-bold bg-blue-400 rounded-xl px-4 py-1">
-          Meet the Squad
-        </button>
-      </div>
+    <div
+      key={key}
+      className="transition duration-500 w-11/12 my-5 mx-4 sm:w-72 h-56 bg-white bg-blur-xl bg-opacity-20 sm:m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white transform hover:-translate-y-1 hover:scale-110">
+      <div
+        className="sm:h-60 sm:w-60 w-80 h-96 rounded-md shadow-buttonShadow"
+        style={{
+          backgroundImage: `url(${url}})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}></div>
+
+      <h1 className="text-2xl mt-2 font-bold">{name}</h1>
     </div>
   );
 }
