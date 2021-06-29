@@ -3,7 +3,6 @@ import { useRouter } from 'next/dist/client/router';
 import { getOneUser } from '../../apollo/userQueries';
 import Project_Card from '../../components/Project_Card copy';
 import { fakeProject } from '../../fakeData';
-import Image from 'next/image';
 
 export default function Profil() {
   const router = useRouter();
