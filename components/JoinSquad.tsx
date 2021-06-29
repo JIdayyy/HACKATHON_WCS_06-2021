@@ -10,7 +10,7 @@ import { Dispatch } from 'react';
 
 interface IProps{
   setIsJoinForm: Dispatch<SetStateAction<boolean>>,
-  id: string | string[],
+  id: string | string[] | undefined,
 }
 
 export default function JoinSquad({setIsJoinForm,id} : IProps):JSX.Element {
