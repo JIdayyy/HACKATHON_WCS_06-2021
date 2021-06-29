@@ -1,4 +1,4 @@
-export default function LoginForm() {
+export default function RegisterForm() {
   return (
     <div className="text-white p-10 rounded-md">
       <label>Email </label>
