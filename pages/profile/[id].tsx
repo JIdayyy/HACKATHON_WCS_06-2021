@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import router from "next/dist/client/router";
+import { useRouter } from "next/dist/client/router";
 import { getOneUser } from "../../apollo/userQueries";
 import Group_Card from "../../components/Group_Card";
 import Loading from "../../components/Loading";
@@ -12,6 +12,7 @@ interface ISquad {
 }
 
 export default function Profil() {
+  const router = useRouter();
   const { id } = router.query;
   const { data, loading, error } = useQuery(getOneUser, { variables: { id } });
 
