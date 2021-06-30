@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import Link from "next/link";
-import Image from "next/image";
-import close from "../public/images/close.svg";
-import axios from "axios";
-import router, { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { userState, authState } from "../components/states";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Link from 'next/link';
+import Image from 'next/image';
+import close from '../public/images/close.svg';
+import axios from 'axios';
+import router, { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { userState, authState } from '../components/states';
 
 export default function LoginForm(): JSX.Element {
   const [userAppState, setUserAppState] = useRecoilState(userState);
@@ -22,7 +22,7 @@ export default function LoginForm(): JSX.Element {
 
   const onSubmit = async (data: { email: string; password: string }) => {
     const RES = await axios({
-      method: "POST",
+      method: 'POST',
       url: process.env.NEXT_PUBLIC_LOGIN_URL,
       data: {
         email: data.email,
@@ -32,9 +32,9 @@ export default function LoginForm(): JSX.Element {
 
     const user = RES.data[0];
     setUserAppState({ ...user });
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
     if (user.id) {
-      return router.push("/");
+      return router.push('/');
     }
   };
 
@@ -49,37 +49,24 @@ export default function LoginForm(): JSX.Element {
               <div className="flex flex-col  ">
                 <p className="text-white font-Open text-4xl font-bold">Login</p>
                 {isAuth ? (
-                  <p className="text-white text-xl">
-                    Compte créé avec succes, veuillez vous connecter.
-                  </p>
+                  <p className="text-white text-xl">Compte créé avec succes, veuillez vous connecter.</p>
                 ) : (
-                  <p className="text-white text-xl">
-                    Join and work with the fiver freelance community
-                  </p>
+                  <p className="text-white text-xl">Join and work with the fiver freelance community</p>
                 )}
               </div>
               <Link href="/">
-                <Image
-                  className="cursor-pointer"
-                  src={close}
-                  width={20}
-                  height={20}
-                  alt="close"
-                />
+                <Image className="cursor-pointer" src={close} width={20} height={20} alt="close" />
               </Link>
             </div>
           </div>
 
-          <form
-            className="flex font-Open flex-col mt-3"
-            onSubmit={handleSubmit(onSubmit)}
-          >
+          <form className="flex font-Open flex-col mt-3" onSubmit={handleSubmit(onSubmit)}>
             <p className="text-white">Email</p>
             <input
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
-              type="text"
+              type="password"
               placeholder="email@email.com"
-              {...register("email", {})}
+              {...register('email', {})}
             />
             <label className="text-white mt-3">Password</label>
 
@@ -87,13 +74,11 @@ export default function LoginForm(): JSX.Element {
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="password"
-              {...register("password", {
-                required: "Specify your password",
+              {...register('password', {
+                required: 'Specify your password',
               })}
             />
-            {errors.password && (
-              <p style={{ color: "white" }}>{errors.password.message}</p>
-            )}
+            {errors.password && <p style={{ color: 'white' }}>{errors.password.message}</p>}
 
             <input
               className="rounded-md p-1 mt-5 text-white cursor-pointer bg-buttonBlue focus:outline-none shadow-inputShadow"
