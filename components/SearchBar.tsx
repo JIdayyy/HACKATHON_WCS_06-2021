@@ -1,10 +1,18 @@
 import { useState } from 'react';
+import router from 'next/router';
 
 export default function SearchBar() {
   const [onSearch, setOnSearch] = useState('');
 
+  const handleSubmit = async () => {
+    router.push(`/search/${onSearch}`);
+  };
+
   return (
-    <form className="flex  justify-start mt-5 sm:mt-0  w-full sm:w-7/12 sm:justify-start">
+    <form
+      className="flex  justify-start mt-5 sm:mt-0  w-full sm:w-7/12 sm:justify-start"
+      onSubmit={handleSubmit}
+    >
       <input
         onChange={(e) => setOnSearch(e.target.value)}
         type="search"

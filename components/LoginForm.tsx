@@ -23,7 +23,7 @@ export default function LoginForm(): JSX.Element {
   const onSubmit = async (data: { email: string; password: string }) => {
     const RES = await axios({
       method: "POST",
-      url: "https://hackathon-wcs-06-2021-3ap1w9b9f-space-xxx.vercel.app/api/auth/login",
+      url: process.env.NEXT_PUBLIC_LOGIN_URL,
       data: {
         email: data.email,
         password: data.password,
@@ -89,10 +89,6 @@ export default function LoginForm(): JSX.Element {
               placeholder="password"
               {...register("password", {
                 required: "Specify your password",
-                minLength: {
-                  value: 10,
-                  message: "Password must have at least 10 characters",
-                },
               })}
             />
             {errors.password && (
@@ -103,7 +99,6 @@ export default function LoginForm(): JSX.Element {
               className="rounded-md p-1 mt-5 text-white cursor-pointer bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"
               value="Connect"
-              onClick={handleSubmit(onSubmit)}
             />
             <div className="flex flex-col text-center mt-2 mb-8 text-white">
               <p className="text-xs">

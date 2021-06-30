@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const getSquads = gql`
   query AllSquads {
@@ -14,21 +14,34 @@ export const getSquads = gql`
   }
 `;
 
-export const addUserToSquad = gql`mutation userSquad($userId: uuid!, $squadId: uuid!) {
-  insert_user_squad(objects: {user_id: $userId, squad_id: $squadId}){
-    returning{
-      Squad{
-        id
-        name
-      }
-      User{
-        id
-        firstname
-        lastname
+export const createSquad = gql`
+  mutation createSquad($squad: Squad_insert_input!) {
+    insert_Squad_one(object: $squad) {
+      id
+      name
+      capacity
+      description
+      img_url
+    }
+  }
+`;
+
+export const addUserToSquad = gql`
+  mutation userSquad($userId: uuid!, $squadId: uuid!) {
+    insert_user_squad(objects: { user_id: $userId, squad_id: $squadId }) {
+      returning {
+        Squad {
+          id
+          name
+        }
+        User {
+          id
+          firstname
+          lastname
+        }
       }
     }
   }
-}
 `;
 
 export const getOneSquad = gql`
@@ -65,6 +78,24 @@ export const squadById = gql`
         id
         name
       }
+    }
+  }
+`;
+
+export const searchSquad = gql`
+  query searchSquad($filter: bpchar) {
+    Squad(
+      where: {
+        _or: [
+          { name: { _ilike: $filter } }
+          { BusinessSector: { name: { _ilike: $filter } } }
+        ]
+      }
+    ) {
+      id
+      name
+      description
+      img_url
     }
   }
 `;
