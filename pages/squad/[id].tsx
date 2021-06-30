@@ -42,28 +42,28 @@ function squad() {
             <button className="transition duration-500 bg-returnButton shadow-buttonShadow mt-5 px-8 py-2 rounded-md hover:scale-105">Return</button>
           </Link>
         </div>
-        <div>
+        <div className="">
           <h1 className="sm:text-7xl text-6xl mx-4 sm:mx-0 font-bold">{squadData && squadData.Squad_by_pk.name}</h1>
-          <div className="flex flex-row space-x-4 ">
+          <div className="flex flex-col space-x-4 sm:w-10/12 ">
             <h2 className="mt-1 sm:text-base mx-4 sm:mx-0  ">{squadData && squadData.Squad_by_pk.description}</h2>
-
-            <button
-              onClick={() => setIsJoinForm(!isJoinForm)}
-              className="transition duration-500 bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 h-16 hover:scale-105">
-              Join squad
-            </button>
-
-            <Link href="/hiresquad">
+            <div className="mt-10">
               <button
-                onClick={handleClick}
-                className="ransition duration-500 h-16  bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105">
+                onClick={() => setIsJoinForm(!isJoinForm)}
+                className="transition duration-500  mr-10 bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 h-12 hover:scale-105">
+                Join squad
+              </button>
+
+              <button
+                onClick={() => setIsJoinForm(!isJoinForm)}
+                className="ransition duration-500 h-12  bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105">
                 Hire squad
               </button>
-            </Link>
+            </div>
           </div>
         </div>
 
         <div className=" flex w-full flex-col justify-center mt-5">
+          <h1 className="flex text-3xl mx-4 sm:mx-0 font-Open font-bold justify-center sm:justify-start">Squad freelancers</h1>
           <div className="flex flex-wrap ">
             {squadData &&
               squadData?.Squad_by_pk?.users?.map((user: { User: IUser }, index: number) => {

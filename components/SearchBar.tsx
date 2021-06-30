@@ -9,7 +9,7 @@ export default function SearchBar() {
   };
 
   return (
-    <form className="flex  justify-start mt-5 sm:mt-0  w-full sm:w-7/12 sm:justify-start" onSubmit={handleSubmit}>
+    <form className="flex justify-start sm:justify-center mt-5 sm:mt-0  w-full" onSubmit={handleSubmit}>
       <input
         onChange={(e) => setOnSearch(e.target.value)}
         type="search"
