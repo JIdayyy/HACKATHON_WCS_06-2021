@@ -8,8 +8,10 @@ import Loading from '../../components/Loading';
 import { useState } from 'react';
 import JoinSquad from '../../components/JoinSquad';
 import Link from 'next/link';
+import FreelanceCard from '../../components/Freelance_Card';
 
 interface IUser {
+  id: string;
   firstname: string;
   lastname: string;
   bio: string;
@@ -67,37 +69,12 @@ function squad() {
           <div className="flex flex-wrap ">
             {squadData &&
               squadData?.Squad_by_pk?.users?.map((user: { User: IUser }, index: number) => {
-                return (
-                  <div
-                    key={index}
-                    className="transition mx-4 duration-500 w-11/12 my-4 sm:w-60 h-80 bg-white bg-blur-xl bg-opacity-20 sm:m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white transform hover:-translate-y-1 hover:scale-110">
-                    <div
-                      className="sm:h-60 sm:w-52 w-80 h-80 rounded-md shadow-buttonShadow"
-                      style={{
-                        backgroundImage: `url(${user.User.avatar_url})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                      }}></div>
-                    <div className="w-full h-full flex flex-col items-left align-middle justify-center">
-                      <div className="flex">
-                        <p className="text-xl font-bold">{user.User.firstname} / </p>
-                        <p className="text-xl font-bold">{user.User.lastname}</p>
-                      </div>
-                      <p className="text-xs overflow-hidden h-20 mt-1">{user.User.bio}</p>
-                      <div className="text-xs"></div>
-                    </div>
-                    <div className="w-full">
-                      <button className="text-sm font-bold bg-blue-400 rounded-md px-4 py-1">Fiverr Profil</button>
-                    </div>
-                  </div>
-                );
+                return <FreelanceCard key={user.User.id} id={user.User.id} />;
               })}
           </div>
           <div className="flex mx-4 sm:mx-0 flex-col justify-center text-justify sm:w-10/12">
             <h2 className="text-3xl font-bold mt-10 font-Open">Squad Description</h2>
-            <p className="sm:text-lg text-sm mt-2 font-Montserrat">
-              {squadData?.Squad_by_pk?.description} {squadData?.Squad_by_pk?.description}
-            </p>
+            <p className="sm:text-lg text-sm mt-2 font-Montserrat">{squadData?.Squad_by_pk?.description} </p>
           </div>
         </div>
         <div className=" flex flex-col justify-center space-y-5 mt-14">

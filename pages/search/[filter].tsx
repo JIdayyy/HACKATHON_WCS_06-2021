@@ -25,7 +25,7 @@ function SearchPage() {
         </h3>
         <div className="ease-in-out flex justify-center sm:justify-start flex-wrap">
           {usersDatas?.User.map((squad: { id: string }) => {
-            return <FreelanceCard id={squad.id} />;
+            return <FreelanceCard key={squad.id} id={squad.id} />;
           })}
         </div>
         <h3>
@@ -33,7 +33,7 @@ function SearchPage() {
         </h3>
         <div className=" flex items-center w-full">
           {squadsDatas?.Squad.map((group: { id: string; name: string; description: string; index: number; img_url: string }) => {
-            return <Group_Card id={group.id} name={group.name} description={group.description} img_url={group.img_url} />;
+            return <Group_Card key={group.id} id={group.id} name={group.name} description={group.description} img_url={group.img_url} />;
           })}
         </div>
       </div>

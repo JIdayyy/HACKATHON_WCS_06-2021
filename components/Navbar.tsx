@@ -6,10 +6,15 @@ import { SetStateAction, Dispatch } from 'react';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
 import { userState } from './states';
+import { useRouter } from 'next/router';
 export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: Dispatch<SetStateAction<boolean>> }) {
   const [myUser, setMyUser] = useRecoilState(userState);
+  const router = useRouter();
+
   const handleClick = () => {
     setIsSideBarVisible(true);
+    localStorage.clear();
+    router.push('/login');
   };
 
   return (
@@ -26,6 +31,10 @@ export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: D
           <Link href={`/profile/${myUser.id}`}>
             <Image className="cursor-pointer" src={Log} height={25} width={25} alt="log" />
           </Link>
+
+          <button onClick={handleClick} className="rounded-md w-24 h-9 mx-10 text-white bg-buttonBlue focus:outline-none shadow-inputShadow ">
+            <a href="/">Logout</a>
+          </button>
         </div>
         <button className="focus:outline-none sm:hidden" onClick={handleClick}>
           <Image src={burger} alt="burger" />{' '}

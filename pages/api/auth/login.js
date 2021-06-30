@@ -1,11 +1,30 @@
 import axios from "axios";
+import Cors from "cors";
+const cors = Cors({
+  methods: ["GET", "HEAD"],
+});
+
+function runMiddleware(req, res, fn) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result);
+      }
+
+      return resolve(result);
+    });
+  });
+}
+
 export default async function handler(req, res) {
   const { email, password } = req.body;
+
+  await runMiddleware(req, res, cors);
 
   try {
     const data = await axios({
       methog: "GET",
-      url: "https://fiverr-squad.hasura.app/api/rest/login",
+      url: `${process.env.REST_URL}/login`,
       headers: {
         "x-hasura-admin-secret": process.env.KEY,
       },
