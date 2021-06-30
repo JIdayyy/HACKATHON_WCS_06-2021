@@ -1,15 +1,18 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Link from 'next/link';
-import Image from 'next/image';
-import close from '../public/images/close.svg';
-import axios from 'axios';
-import router, { useRouter } from 'next/router';
-import { useRecoilState } from 'recoil';
-import { userState } from '../components/states';
+
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import Link from "next/link";
+import Image from "next/image";
+import close from "../public/images/close.svg";
+import axios from "axios";
+import router, { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { userState, authState } from "../components/states";
+
 export default function LoginForm(): JSX.Element {
   const [userAppState, setUserAppState] = useRecoilState(userState);
-
+  const [isAuth, setisAuth] = useRecoilState(authState);
+  console.log(isAuth);
   const {
     register,
     handleSubmit,
@@ -20,22 +23,24 @@ export default function LoginForm(): JSX.Element {
 
   const onSubmit = async (data: { email: string; password: string }) => {
     const RES = await axios({
+
       method: 'POST',
       url: 'http://localhost:3000/api/auth/login',
+
       data: {
         email: data.email,
         password: data.password,
       },
     });
-    console.log(RES.data[0]);
+
     const user = RES.data[0];
     setUserAppState({ ...user });
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
     if (user.id) {
-      return router.push('/');
+      return router.push("/");
+
     }
   };
-  console.log(errors);
 
   const [show, setShow] = useState(false);
 
@@ -47,9 +52,15 @@ export default function LoginForm(): JSX.Element {
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col  ">
                 <p className="text-white font-Open text-4xl font-bold">Login</p>
-                <p className="text-white text-xl">
-                  Join and work with the fiver freelance community
-                </p>
+                {isAuth ? (
+                  <p className="text-white text-xl">
+                    Compte créé avec succes, veuillez vous connecter.
+                  </p>
+                ) : (
+                  <p className="text-white text-xl">
+                    Join and work with the fiver freelance community
+                  </p>
+                )}
               </div>
               <Link href="/">
                 <Image
@@ -89,7 +100,7 @@ export default function LoginForm(): JSX.Element {
             )}
 
             <input
-              className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
+              className="rounded-md p-1 mt-5 text-white cursor-pointer bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"
               value="Connect"
             />

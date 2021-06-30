@@ -4,6 +4,7 @@ import { useRouter } from 'next/dist/client/router';
 import { getOneSquad } from '../../apollo/squadQueries';
 import { allProjects } from '../../apollo/projectQueries';
 import { useQuery } from '@apollo/client';
+import Loading from '../../components/Loading'
 import {useState} from 'react'
 import JoinSquad from '../../components/JoinSquad'
 import Link from 'next/link';
@@ -19,8 +20,8 @@ function squad() {
   const [isJoinForm, setIsJoinForm] = useState<boolean>(false)
   const router = useRouter();
   const { id } = router.query;
-  const { data: squadData } = useQuery(getOneSquad, { variables: { id } });
-  const { data: projectData } = useQuery(allProjects, { variables: { id } });
+  const { data: squadData,loading:loading_1 } = useQuery(getOneSquad, { variables: { id } });
+  const { data: projectData,loading:loading_2 } = useQuery(allProjects, { variables: { id } });
   console.log(projectData);
   console.log(squadData);
 
@@ -28,6 +29,8 @@ function squad() {
     window.history.back();
   };
 console.log(squadData)
+
+if(loading_1 || loading_2){return <Loading/>}
   return (
     <div className="  overflow-y-auto w-full h-screen ">
         {isJoinForm && <JoinSquad id={id} setIsJoinForm={setIsJoinForm}/>}
