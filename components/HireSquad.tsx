@@ -16,7 +16,7 @@ export default function HireSquad() {
   return (
     <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
       <div className="w-screen h-screen flex flex-col justify-center absolute items-center bg-black bg-opacity-50">
-        <div className="w-11/12 flex flex-col  rounded-lg p-8 md:p-12 bg-backGround bg-cover sm:w-6/12 shadow-inputShadow">
+        <div className="w-11/12 flex flex-col  rounded-lg p-6 md:p-12 bg-backGround bg-cover sm:w-6/12 shadow-inputShadow">
           <div className="flex w-full justify-between">
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col  ">

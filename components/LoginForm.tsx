@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import close from '../public/images/close.svg';
 import axios from 'axios';
-import router from 'next/router';
+import router, { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { userState, authState } from '../components/states';
 
@@ -80,7 +80,7 @@ export default function LoginForm(): JSX.Element {
 
             <input
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
-              type="text"
+              type="password"
               placeholder="password"
               {...register('password', {
                 required: 'Specify your password',
