@@ -1,3 +1,13 @@
+import React from 'react';
+import Project_Card from '../../components/Project_Card copy';
+import { useRouter } from 'next/dist/client/router';
+import { getOneSquad } from '../../apollo/squadQueries';
+import { allProjects } from '../../apollo/projectQueries';
+import { useQuery } from '@apollo/client';
+import Loading from '../../components/Loading';
+import { useState } from 'react';
+import JoinSquad from '../../components/JoinSquad';
+import Link from 'next/link';
 import FreelanceCard from '../../components/FreelanceCard2';
 import React from 'react';
 import Project_Card from '../../components/Project_Card copy';
@@ -28,7 +38,6 @@ function squad() {
   const { data: projectData, loading: loading_2 } = useQuery(allProjects, {
     variables: { id },
   });
-
   if (loading_1 || loading_2) {
     return <Loading />;
   }
@@ -62,7 +71,6 @@ function squad() {
             </div>
           </div>
         </div>
-
         <div className=" flex w-full flex-col justify-center mt-5">
           <h1 className="sm:text-3xl text-4xl mx-4 sm:mx-0 font-bold">Squad Freelancers</h1>
           <div className="flex flex-wrap ">

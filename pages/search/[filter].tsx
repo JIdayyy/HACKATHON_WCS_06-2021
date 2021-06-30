@@ -30,25 +30,9 @@ function SearchPage() {
           Squads with {filter} keyword ({squadsDatas?.Squad.length})
         </h3>
         <div className=" flex items-center w-full">
-          {squadsDatas?.Squad.map(
-            (group: {
-              id: string;
-              name: string;
-              description: string;
-              index: number;
-              img_url: string;
-            }) => {
-              return (
-                <Group_Card
-                  key={group.id}
-                  id={group.id}
-                  name={group.name}
-                  description={group.description}
-                  img_url={group.img_url}
-                />
-              );
-            }
-          )}
+          {squadsDatas?.Squad.map((group: { id: string; name: string; description: string; index: number; img_url: string }) => {
+            return <Group_Card key={group.id} id={group.id} name={group.name} description={group.description} img_url={group.img_url} />;
+          })}
         </div>
       </div>
     </div>

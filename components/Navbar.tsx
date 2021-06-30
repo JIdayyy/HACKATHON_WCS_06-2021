@@ -6,10 +6,12 @@ import { SetStateAction, Dispatch } from 'react';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
 import { userState } from './states';
-import router from 'next/router';
 
+import router from 'next/router';
 export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: Dispatch<SetStateAction<boolean>> }) {
   const [myUser, setMyUser] = useRecoilState(userState);
+  const router = useRouter();
+
   const handleClick = () => {
     setIsSideBarVisible(true);
     localStorage.clear();
@@ -17,7 +19,7 @@ export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: D
   };
 
   return (
-    <div className="flex flex-col static sm:flex-row text-white sm:h-24  font-Open z-20 px-3 sm:px-5 sm:py-6 py-5  justify-between  align-middle items-center w-full">
+    <div className="flex flex-col h-48 static sm:flex-row text-white sm:h-20 font-Open py-5 z-20 px-3 sm:px-5 sm:pt-10 justify-between  align-middle items-center w-full">
       <div className="sm:text-4xl flex text-4xl font-bold mr-5">
         <a href="/squad">Fiverr. Squad</a>
         <p>{myUser.firstname}</p>
@@ -33,9 +35,6 @@ export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: D
             <a href="/">Logout</a>
           </button>
         </div>
-        <button className="focus:outline-none sm:hidden" onClick={handleClick}>
-          <Image src={burger} alt="burger" />
-        </button>
       </div>
     </div>
   );

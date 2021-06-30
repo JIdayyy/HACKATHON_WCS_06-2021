@@ -44,31 +44,18 @@ export default function LoginForm(): JSX.Element {
               <div className="flex flex-col  ">
                 <p className="text-white font-Open text-4xl font-bold">Login</p>
                 {isAuth ? (
-                  <p className="text-white text-xl">
-                    Compte créé avec succes, veuillez vous connecter.
-                  </p>
+                  <p className="text-white text-xl">Compte créé avec succes, veuillez vous connecter.</p>
                 ) : (
-                  <p className="text-white text-xl">
-                    Join and work with the fiver freelance community
-                  </p>
+                  <p className="text-white text-xl">Join and work with the fiver freelance community</p>
                 )}
               </div>
               <Link href="/">
-                <Image
-                  className="cursor-pointer"
-                  src={close}
-                  width={20}
-                  height={20}
-                  alt="close"
-                />
+                <Image className="cursor-pointer" src={close} width={20} height={20} alt="close" />
               </Link>
             </div>
           </div>
 
-          <form
-            className="flex font-Open flex-col mt-3"
-            onSubmit={handleSubmit(onSubmit)}
-          >
+          <form className="flex font-Open flex-col mt-3" onSubmit={handleSubmit(onSubmit)}>
             <p className="text-white">Email</p>
             <input
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
@@ -89,7 +76,6 @@ export default function LoginForm(): JSX.Element {
             {errors.password && (
               <p style={{ color: 'white' }}>{errors.password.message}</p>
             )}
-
             <input
               className="rounded-md p-1 mt-5 text-white cursor-pointer bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"

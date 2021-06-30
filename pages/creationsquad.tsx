@@ -1,9 +1,9 @@
-import { useForm } from "react-hook-form";
-import { createSquad } from "../apollo/squadQueries";
-import { useMutation, useQuery } from "@apollo/client";
-import { getAllSectors } from "../apollo/sectorQueries";
-import Error from "../components/Error";
-import Loading from "../components/Loading";
+import { useForm } from 'react-hook-form';
+import { createSquad } from '../apollo/squadQueries';
+import { useMutation, useQuery } from '@apollo/client';
+import { getAllSectors } from '../apollo/sectorQueries';
+import Error from '../components/Error';
+import Loading from '../components/Loading';
 interface IData {
   name: string;
   capacity: number;
@@ -23,11 +23,7 @@ export default function CreationSquad(): JSX.Element {
 
   const [postSquad, { data, loading, error }] = useMutation(createSquad);
 
-  const {
-    data: BusinessesDatas,
-    loading: BusinessLoading,
-    error: business_error,
-  } = useQuery(getAllSectors);
+  const { data: BusinessesDatas, loading: BusinessLoading, error: business_error } = useQuery(getAllSectors);
 
   const onSubmit = (data: IData) => {
     postSquad({
@@ -100,15 +96,13 @@ export default function CreationSquad(): JSX.Element {
             type="text"
             {...register("name", {})}
           />
-
-          <input
-            className="rounded-md p-1 mt-5 w-20 outline-none cursor-pointer text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
-            type="submit"
-            value="Save"
-            onClick={handleSubmit(onSubmit)}
-          />
-        </form>
-      </div>
+        <input
+          className="rounded-md p-1 mt-5 w-20 outline-none cursor-pointer text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
+          type="submit"
+          value="Save"
+          onClick={handleSubmit(onSubmit)}
+        />
+      </form>
     </div>
   );
 }

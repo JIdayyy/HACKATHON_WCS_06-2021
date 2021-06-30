@@ -9,15 +9,12 @@ export default function SearchBar() {
   };
 
   return (
-    <form
-      className="flex  justify-start mt-5 sm:mt-0  w-full sm:w-7/12 sm:justify-start"
-      onSubmit={handleSubmit}
-    >
+    <form className="flex justify-start sm:justify-center mt-5 sm:mt-0  w-full" onSubmit={handleSubmit}>
       <input
         onChange={(e) => setOnSearch(e.target.value)}
         type="search"
         placeholder="Search"
-        className="sm:w-6/12 w-full h-11 rounded-lg py-5 focus:outline-none outline-none text-white bg-white bg-opacity-20 px-4"
+        className="sm:w-6/12 w-full h-11 rounded-lg py-5 focus:outline-none outline-none text-white bg-white shadow-inputShadow bg-opacity-20 px-4"
       />
     </form>
   );
