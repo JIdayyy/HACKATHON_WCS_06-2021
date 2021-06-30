@@ -25,11 +25,9 @@ export default function Profil() {
   if (error) {
     return <Error message="Error, can't get this profile" />;
   }
-
   const handleClick = () => {
     router.push("/creationsquad");
   };
-
   return (
     <div className="flex flex-col h-screen pb-36 text-white items-center sm:items-start overflow-y-auto">
       <div className="bg-white mt-10 w-11/12 sm:w-8/12 bg-opacity-20 rounded-md shadow-inputShadow p-5 sm:py-10">
