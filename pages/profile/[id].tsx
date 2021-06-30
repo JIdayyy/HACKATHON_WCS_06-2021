@@ -59,9 +59,14 @@ export default function Profil() {
         </div>
       </div>
 
-      <h2 className="text-4xl font-Open font-bold mt-20">My Squads</h2>
+      <h2 className="text-4xl font-Open font-bold mt-20  ">My Squads</h2>
 
-      <button onClick={() => handleClick()}>ADD SQUAD</button>
+      <button
+        className="mt-2 bg-buttonBlue shadow-buttonShadow  px-4 py-1 rounded-md"
+        onClick={() => handleClick()}
+      >
+        ADD SQUAD
+      </button>
       <div className="w-full flex mb-32 flex-wrap">
         {data?.User_by_pk?.user_squads?.map(
           (squad: { Squad: ISquad }, index: number) => {

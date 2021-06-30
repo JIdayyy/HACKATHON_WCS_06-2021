@@ -1,4 +1,4 @@
-import FreelanceCard from '../../components/FreelanceCard2';
+import FreelanceCard from "../../components/FreelanceCard2";
 import React from "react";
 import Project_Card from "../../components/Project_Card copy";
 import { useRouter } from "next/dist/client/router";
@@ -10,7 +10,6 @@ import { useState } from "react";
 import JoinSquad from "../../components/JoinSquad";
 import Link from "next/link";
 import Image from "next/image";
-
 
 interface IUser {
   id: string;
@@ -71,7 +70,7 @@ function squad() {
             <Link href="/hiresquad">
               <button
                 onClick={handleClick}
-                className="ransition duration-500 h-16  bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105"
+                className="transition duration-500 h-16  bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105"
               >
                 Hire squad
               </button>
@@ -93,7 +92,7 @@ function squad() {
               Squad Description
             </h2>
             <p className="sm:text-lg text-sm mt-2 font-Montserrat">
-              {squadData?.Squad_by_pk?.description}{' '}
+              {squadData?.Squad_by_pk?.description}{" "}
             </p>
           </div>
         </div>
