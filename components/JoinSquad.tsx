@@ -16,7 +16,7 @@ interface IProps {
 
 export default function JoinSquad({ setIsJoinForm, id }: IProps): JSX.Element {
   const [isError, setIsError] = useRecoilState(errorState);
-  const [currentUser, setCurrentUser] = useRecoilState(userState)
+  const [currentUser, setCurrentUser] = useRecoilState(userState);
   const {
     register,
     handleSubmit,
@@ -33,7 +33,7 @@ export default function JoinSquad({ setIsJoinForm, id }: IProps): JSX.Element {
         squadId: id,
       },
     });
-    router.reload()
+    router.reload();
   };
   console.log(error);
   if (error) {

@@ -54,7 +54,7 @@ export default function CreationSquad(): JSX.Element {
   }
 
   return (
-    <div className="flex w-screen flex-col  align-middle justify-center text-white items-center pt-40 overflow-y-auto  ">
+    <div className="flex w-screen flex-col  align-middle justify-start text-white items-start py-10 overflow-y-auto  ">
       <div className="flex flex-col w-9/12 md:w-9/12 lg:w-5/12">
         <h1 className="text-4xl font-bold">Create your Squad</h1>
         <form
