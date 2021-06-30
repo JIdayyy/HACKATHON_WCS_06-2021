@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const getAllUsers = gql`
   query users {
@@ -67,6 +67,25 @@ export const updateUser = gql`
       firstname
       lastname
       email
+    }
+  }
+`;
+
+export const userSearch = gql`
+  query searchUser($filter: bpchar) {
+    User(
+      where: {
+        _or: [
+          { firstname: { _ilike: $filter } }
+          { lastname: { _ilike: $filter } }
+          { user_jobs: { Job: { label: { _ilike: $filter } } } }
+          { user_squads: { Squad: { name: { _ilike: $filter } } } }
+        ]
+      }
+    ) {
+      id
+      firstname
+      lastname
     }
   }
 `;
