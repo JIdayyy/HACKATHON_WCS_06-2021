@@ -4,9 +4,9 @@ import Loading from "./Loading";
 import { getOneUser } from "../apollo/userQueries";
 import Image from "next/image";
 
+
 function FreelanceCard({ id }: { id: string }): JSX.Element {
   const { data, loading } = useQuery(getOneUser, { variables: { id } });
-  console.log(data);
 
   if (loading)
     return (
@@ -25,8 +25,8 @@ function FreelanceCard({ id }: { id: string }): JSX.Element {
               <Image src="/profile_placeholder.png" width={52} height={80} />
             )
           })`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       ></div>
       <div className="w-full h-full flex flex-col items-left align-middle justify-center">
