@@ -1,11 +1,11 @@
 import { useSession, getSession } from 'next-auth/client';
 import Image from 'next/image';
-import router from 'next/router'
-import {useEffect} from 'react'
+import router from 'next/router';
+import { useEffect } from 'react';
 import Log from '../public/LogIn.svg';
 import Link from 'next/link';
 
-export default  function Home(): JSX.Element {
+export default function Home(): JSX.Element {
   return (
     <div className="h-screen w-screen text-white bg-backGround bg-cover bg-no-repeat bg-center z-50 flex-col absolute top-0 items-center justify-center min-h-screen py-2">
       <div className="w-full flex pr-12 pt-5 justify-end">
@@ -24,8 +24,8 @@ export default  function Home(): JSX.Element {
           <h2 className="mt-12 sm:text-5xl mx-4 text-2xl font-bold">Find your perfect squad and speed up your projects.</h2>
         </div>
         <div className="text-center font-Montserrat mx-4 mt-16">
-          <h2 className="sm:text-3xl text-xl font-light">You are aproject Manager or a freelancer</h2>
-          <h3 className="mt-5 sm:text-2xl text-sm font-light">Find the team you need already build and ready to work on your dream project. </h3>
+          <h2 className="sm:text-3xl text-xl font-light">You are a project Manager or a freelancer ?</h2>
+          <h3 className="mt-5 sm:text-2xl text-sm font-light">Find the team you need already build and ready to work on your dream project.</h3>
         </div>
         <div className="flex flex-col sm:flex-row sm:w-4/12 sm:mt-20 mt-10 sm:justify-between">
           <Link href="/squad">
