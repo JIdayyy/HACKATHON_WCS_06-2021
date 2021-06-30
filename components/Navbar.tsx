@@ -1,23 +1,19 @@
-import Image from "next/image";
-import Log from "../public/LogIn.svg";
-import SearchBar from "./SearchBar";
-import burger from "../public/burger.svg";
-import { SetStateAction, Dispatch } from "react";
-import Link from "next/link";
-import { useRecoilState } from "recoil";
-import { userState } from "./states";
-import router from "next/router";
+import Image from 'next/image';
+import Log from '../public/LogIn.svg';
+import SearchBar from './SearchBar';
+import burger from '../public/burger.svg';
+import { SetStateAction, Dispatch } from 'react';
+import Link from 'next/link';
+import { useRecoilState } from 'recoil';
+import { userState } from './states';
+import router from 'next/router';
 
-export default function Navbar({
-  setIsSideBarVisible,
-}: {
-  setIsSideBarVisible: Dispatch<SetStateAction<boolean>>;
-}) {
+export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: Dispatch<SetStateAction<boolean>> }) {
   const [myUser, setMyUser] = useRecoilState(userState);
   const handleClick = () => {
     setIsSideBarVisible(true);
     localStorage.clear();
-    router.push("/login");
+    router.push('/login');
   };
 
   return (
@@ -28,21 +24,12 @@ export default function Navbar({
       </div>
       <SearchBar />
       <div className="flex items-end sm:items-center justify-between w-full sm:justify-end sm:w-2/12 px-2 mt-10 sm:mt-0">
-        <div className="flex flex-row-reverse justify-center sm:flex-row items-end sm:items-start">
+        <div className="flex flex-row-reverse justify-center sm:flex-row items-end sm:items-center">
           <Link href={`/profile/${myUser.id}`}>
-            <Image
-              className="cursor-pointer"
-              src={Log}
-              height={25}
-              width={25}
-              alt="log"
-            />
+            <Image className="cursor-pointer" src={Log} height={25} width={25} alt="log" />
           </Link>
 
-          <button
-            onClick={handleClick}
-            className="rounded-md w-24 h-9 mx-10 text-white bg-buttonBlue focus:outline-none shadow-inputShadow "
-          >
+          <button onClick={handleClick} className="rounded-md w-24 h-9 mx-10 text-white bg-buttonBlue focus:outline-none shadow-inputShadow ">
             <a href="/">Logout</a>
           </button>
         </div>
