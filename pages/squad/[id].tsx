@@ -9,7 +9,6 @@ import Loading from '../../components/Loading';
 import { useState } from 'react';
 import JoinSquad from '../../components/JoinSquad';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface IUser {
   id: string;
@@ -29,10 +28,6 @@ function squad() {
   const { data: projectData, loading: loading_2 } = useQuery(allProjects, {
     variables: { id },
   });
-
-  const handleClick = () => {
-    window.history.back();
-  };
 
   if (loading_1 || loading_2) {
     return <Loading />;
@@ -66,8 +61,8 @@ function squad() {
 
             <Link href="/hiresquad">
               <button
-                onClick={handleClick}
                 className="ransition duration-500 h-16  bg-buttonBlue shadow-buttonShadow mt-1 px-8 py-2 rounded-md hover:-translate-y-1 hover:scale-105"
+                onClick={() => router.push('/hiresquad')}
               >
                 Hire squad
               </button>
