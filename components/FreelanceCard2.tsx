@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import { useQuery } from "@apollo/client";
 import { getOneUser } from "../apollo/userQueries";
 import Image from "next/image";
+
 
 function FreelanceCard({ id }: { id: string }): JSX.Element {
   const { data, loading } = useQuery(getOneUser, { variables: { id } });
@@ -33,9 +35,11 @@ function FreelanceCard({ id }: { id: string }): JSX.Element {
         <div className="text-xs"></div>
       </div>
       <div className="w-full">
-        <button className="text-sm font-bold bg-blue-400 rounded-md px-4 py-1">
-          Fiverr Profil
-        </button>
+        <Link href={`/profile/${data?.User_by_pk.id}`}>
+          <a className="text-sm font-bold bg-blue-400 rounded-md px-4 py-1">
+            Fiverr Profil
+          </a>
+        </Link>
       </div>
     </div>
   );

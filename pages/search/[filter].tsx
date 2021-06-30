@@ -25,7 +25,7 @@ function SearchPage() {
         </h3>
         <div className="ease-in-out flex mb-60 justify-center sm:justify-start flex-wrap">
           {usersDatas?.User.map((squad: { id: string }) => {
-            return <FreelanceCard id={squad.id} />;
+            return <FreelanceCard key={squad.id} id={squad.id} />;
           })}
         </div>
         <h3>
@@ -42,6 +42,7 @@ function SearchPage() {
             }) => {
               return (
                 <Group_Card
+                  key={group.id}
                   id={group.id}
                   name={group.name}
                   description={group.description}
