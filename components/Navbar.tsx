@@ -28,7 +28,7 @@ export default function Navbar({
       </div>
       <SearchBar />
       <div className="flex items-end sm:items-center justify-between w-full sm:justify-end sm:w-2/12 px-2 mt-10 sm:mt-0">
-        <div className="flex flex-row-reverse sm:flex-row items-end sm:items-start">
+        <div className="flex flex-row-reverse justify-center sm:flex-row items-end sm:items-start">
           <Link href={`/profile/${myUser.id}`}>
             <Image
               className="cursor-pointer"
@@ -41,7 +41,7 @@ export default function Navbar({
 
           <button
             onClick={handleClick}
-            className="rounded-md w-24 h-9 mx-2 text-white bg-buttonBlue focus:outline-none shadow-inputShadow "
+            className="rounded-md w-24 h-9 mx-10 text-white bg-buttonBlue focus:outline-none shadow-inputShadow "
           >
             <a href="/">Logout</a>
           </button>
