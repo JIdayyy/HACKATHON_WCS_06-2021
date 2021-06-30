@@ -1,6 +1,8 @@
-import { useQuery } from '@apollo/client';
-import { getOneUser } from '../apollo/userQueries';
 import Link from 'next/link';
+import { useQuery } from "@apollo/client";
+import { getOneUser } from "../apollo/userQueries";
+import Image from "next/image";
+
 
 function FreelanceCard({ id }: { id: string }): JSX.Element {
   const { data, loading } = useQuery(getOneUser, { variables: { id } });
@@ -13,9 +15,13 @@ function FreelanceCard({ id }: { id: string }): JSX.Element {
       <div
         className="sm:h-60 sm:w-52 w-80 h-80 rounded-md shadow-buttonShadow"
         style={{
-          backgroundImage: `url(${data?.User_by_pk.avatar_url})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundImage: `url(${
+            data?.User_by_pk.avatar_url || (
+              <Image src="/profile_placeholder.png" width={52} height={80} />
+            )
+          })`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       ></div>
       <div className="w-full h-full flex flex-col items-left align-middle justify-center">

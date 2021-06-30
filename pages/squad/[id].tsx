@@ -1,14 +1,16 @@
-import React from 'react';
-import Project_Card from '../../components/Project_Card copy';
-import { useRouter } from 'next/dist/client/router';
-import { getOneSquad } from '../../apollo/squadQueries';
-import { allProjects } from '../../apollo/projectQueries';
-import { useQuery } from '@apollo/client';
-import Loading from '../../components/Loading';
-import { useState } from 'react';
-import JoinSquad from '../../components/JoinSquad';
-import Link from 'next/link';
 import FreelanceCard from '../../components/FreelanceCard2';
+import React from "react";
+import Project_Card from "../../components/Project_Card copy";
+import { useRouter } from "next/dist/client/router";
+import { getOneSquad } from "../../apollo/squadQueries";
+import { allProjects } from "../../apollo/projectQueries";
+import { useQuery } from "@apollo/client";
+import Loading from "../../components/Loading";
+import { useState } from "react";
+import JoinSquad from "../../components/JoinSquad";
+import Link from "next/link";
+import Image from "next/image";
+
 
 interface IUser {
   id: string;
@@ -92,7 +94,6 @@ function squad() {
             </h2>
             <p className="sm:text-lg text-sm mt-2 font-Montserrat">
               {squadData?.Squad_by_pk?.description}{' '}
-              {squadData?.Squad_by_pk?.description}
             </p>
           </div>
         </div>
