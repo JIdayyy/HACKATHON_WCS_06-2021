@@ -114,14 +114,14 @@ export default function SignUpForm(): JSX.Element {
             <input
               className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"
-              value="Connect"
+              value="Create"
               onClick={handleSubmit(onSubmit)}
             />
             <div className="flex flex-col text-center mt-2 mb-8 text-white">
               <p className="text-xs">
                 {"Already have an account? "}
                 <span className="text-blue-500">
-                  <a href="/login">Sign in</a>
+                  <a href="/login">Login</a>
                 </span>
               </p>
             </div>
