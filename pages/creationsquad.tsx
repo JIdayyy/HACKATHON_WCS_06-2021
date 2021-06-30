@@ -1,4 +1,15 @@
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
+import { createSquad } from "../apollo/squadQueries";
+import { useMutation, useQuery } from "@apollo/client";
+import { getAllSectors } from "../apollo/sectorQueries";
+
+interface IData {
+  name: string;
+  capacity: number;
+  img_url: string;
+  description: string;
+  business: string;
+}
 
 export default function CreationSquad(): JSX.Element {
   const {
@@ -8,56 +19,78 @@ export default function CreationSquad(): JSX.Element {
     watch,
     getValues,
   } = useForm();
-  const onSubmit = (data: object) => console.log(watch);
-  console.log(errors);
+
+  const [postSquad, { data, loading }] = useMutation(createSquad);
+
+  const { data: BusinessesDatas, loading: BusinessLoading } =
+    useQuery(getAllSectors);
+
+  const onSubmit = (data: IData) => {
+    postSquad({
+      variables: {
+        squad: {
+          name: data.name,
+          capacity: data.capacity,
+          img_url: data.img_url,
+          description: data.description,
+          business_id: data.business,
+        },
+      },
+    });
+
+    console.log(data);
+  };
 
   return (
-    <div className="flex flex-col w-full  text-white items-center overflow-y-auto  ">
-      <div className="flex flex-col w-11/12 md:w-10/12 lg:w-8/12">
-        <h1>Create your Squad</h1>
-        <form className=" font-Open  mt-3 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+    <div className="flex w-screen flex-col  align-middle justify-center text-white items-center pt-40 overflow-y-auto  ">
+      <div className="flex flex-col w-9/12 md:w-9/12 lg:w-5/12">
+        <h1 className="text-4xl font-bold">Create your Squad</h1>
+        <form
+          className=" font-Open  mt-3 flex flex-col"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <p className="text-white">Squad name</p>
           <input
-            className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
+            className="rounded-md text-white focus:ouline-none outline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
             type="text"
-            placeholder="Space rocket"
-            {...register('name', {})}
+            {...register("name", {})}
           />
-          <p className="text-white mt-3">Welcoming text</p>
-          <input
+          <p className="text-white mt-3">Business :</p>
+          <select
             className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
-            type="text"
-            placeholder="Your Project to the moon and back"
-            {...register('name', {})}
-          />
-          <p className="text-white mt-3">member n*</p>
+            {...register("business", {})}
+          >
+            {!BusinessLoading &&
+              BusinessesDatas.BusinessSector.map(
+                (business: { id: string; name: string }) => {
+                  return (
+                    <option className="text-black" value={business.id}>
+                      {business.name}
+                    </option>
+                  );
+                }
+              )}
+          </select>
+          <p className="text-white mt-3">Capacity :</p>
           <input
-            className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
+            className="rounded-md text-white outline-none focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
             type="number"
-            placeholder="member number"
-            {...register('member number', {})}
+            {...register("capacity", {})}
           />
           <p className="text-white mt-3">Description text</p>
           <textarea
-            className="h-36 rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
-            {...register('message', { maxLength: 500 })}
+            className="h-36 rounded-md text-white outline-none focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
+            {...register("description", { maxLength: 500 })}
           />
           <p className="text-white mt-3">Squad Image</p>
           <input
-            className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
+            className="rounded-md text-white outline-none focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
             type="text"
-            placeholder="UPLOAD"
-            {...register('name', {})}
+            {...register("name", {})}
           />
-          <p className="text-white">Contact Email</p>
+
           <input
-            className="rounded-md  mt-3 text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
-            type="text"
-            placeholder="email@email.com"
-            {...register('email', {})}
-          />
-          <input
-            className="rounded-md p-1 mt-5 w-20 text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
+            className="rounded-md p-1 mt-5 w-20 outline-none cursor-pointer text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
             type="submit"
             value="Save"
             onClick={handleSubmit(onSubmit)}
