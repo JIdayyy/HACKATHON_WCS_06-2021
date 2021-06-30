@@ -1,20 +1,35 @@
+import React from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/dist/client/router";
+import { getOneSquad } from "../apollo/squadQueries";
+import { allProjects } from "../apollo/projectQueries";
+import { useQuery } from "@apollo/client";
+import Loading from "../components/Loading";
 
-export default function CreationSquad(): JSX.Element {
+export default function editSquad() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    getValues,
   } = useForm();
-  const onSubmit = (data: object) => console.log(watch);
+  const onSubmit = (data: object) => console.log(data);
   console.log(errors);
 
+  const router = useRouter();
+
+  const { data: squadData, loading: loading_1 } = useQuery(getOneSquad, {
+    variables: { id },
+  });
+  const { data: projectData, loading: loading_2 } = useQuery(allProjects, {
+    variables: { id },
+  });
+  if (loading_1 || loading_2) {
+    return <Loading />;
+  }
   return (
     <div className="flex flex-col w-full  text-white items-center overflow-y-auto  ">
       <div className="flex flex-col w-11/12 md:w-10/12 lg:w-8/12">
-        <h1>Create your Squad</h1>
+        <h1>Edit your Squad</h1>
         <form
           className=" font-Open  mt-3 flex flex-col"
           onSubmit={handleSubmit(onSubmit)}
