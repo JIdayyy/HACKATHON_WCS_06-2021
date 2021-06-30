@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/client';
 import client from '../apollo/apollo-client';
 import Layout from '../components/Layout';
 import {RecoilRoot} from 'recoil'
+import '../style.css'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
   <RecoilRoot >

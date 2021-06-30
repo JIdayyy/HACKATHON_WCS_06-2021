@@ -3,10 +3,15 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import Image from "next/image";
 import close from "../public/images/close.svg";
-import { createUser } from "../apollo/userQueries";
-import { useMutation, gql } from "@apollo/client";
+import { createUser, getOneUser } from "../apollo/userQueries";
+import { useMutation, useQuery, gql } from "@apollo/client";
+import { useRecoilState } from "recoil";
 import { useRouter } from "next/router";
+import { authState } from "../components/states";
+import Loading from "./Loading";
 export default function SignUpForm(): JSX.Element {
+  const [isAuth, setisAuth] = useRecoilState(authState);
+
   const {
     register,
     handleSubmit,
@@ -14,21 +19,27 @@ export default function SignUpForm(): JSX.Element {
     watch,
     getValues,
   } = useForm();
-  const router = useRouter();
-  const [AddUser, { data }] = useMutation(createUser);
 
-  const onSubmit = (data: { email: string; password: string }) => {
-    AddUser({
+  const router = useRouter();
+  const [AddUser, { data, loading }] = useMutation(createUser);
+
+  const onSubmit = async (formData: { email: string; password: string }) => {
+    await AddUser({
       variables: {
         user: {
-          email: data.email,
-          password: data.password,
+          email: formData.email,
+          password: formData.password,
         },
       },
     });
-
-    router.push("/");
+    setisAuth(true);
+    router.push("/login");
   };
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
       <div className="w-screen h-screen flex flex-col justify-center absolute items-center bg-black bg-opacity-50">

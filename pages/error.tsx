@@ -1,11 +1,9 @@
-import LoginForm from "../components/LoginForm";
-import {useState} from 'react'
+import Error from "../components/Error";
 
-export default function Login(): JSX.Element {
- 
+export default function error() {
   return (
     <div className="w-full bg-backGround top-0 absolute h-screen flex flex-col items-center justify-center align-middle">
-      <LoginForm />
+      <Error message="error" />
     </div>
   );
 }
