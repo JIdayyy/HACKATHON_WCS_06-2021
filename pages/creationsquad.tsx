@@ -2,7 +2,8 @@ import { useForm } from "react-hook-form";
 import { createSquad } from "../apollo/squadQueries";
 import { useMutation, useQuery } from "@apollo/client";
 import { getAllSectors } from "../apollo/sectorQueries";
-
+import Error from "../components/Error";
+import Loading from "../components/Loading";
 interface IData {
   name: string;
   capacity: number;
@@ -20,10 +21,13 @@ export default function CreationSquad(): JSX.Element {
     getValues,
   } = useForm();
 
-  const [postSquad, { data, loading }] = useMutation(createSquad);
+  const [postSquad, { data, loading, error }] = useMutation(createSquad);
 
-  const { data: BusinessesDatas, loading: BusinessLoading } =
-    useQuery(getAllSectors);
+  const {
+    data: BusinessesDatas,
+    loading: BusinessLoading,
+    error: business_error,
+  } = useQuery(getAllSectors);
 
   const onSubmit = (data: IData) => {
     postSquad({
@@ -37,9 +41,17 @@ export default function CreationSquad(): JSX.Element {
         },
       },
     });
-
-    console.log(data);
   };
+
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Error message="Error during squad creation..." />;
+  }
+  if (business_error) {
+    return <Error message="Error business query failed" />;
+  }
 
   return (
     <div className="flex w-screen flex-col  align-middle justify-center text-white items-center pt-40 overflow-y-auto  ">
