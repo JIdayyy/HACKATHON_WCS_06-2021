@@ -24,7 +24,6 @@ export default function LoginForm(): JSX.Element {
     const RES = await axios({
       method: "POST",
       url: process.env.NEXT_PUBLIC_LOGIN_URL,
-
       data: {
         email: data.email,
         password: data.password,
