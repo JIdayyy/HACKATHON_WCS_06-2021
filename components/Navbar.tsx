@@ -21,7 +21,7 @@ export default function Navbar({
   };
 
   return (
-    <div className="flex flex-col static sm:flex-row text-white sm:h-24 h-full font-Open z-20 px-3 sm:px-5 sm:py-6 py-5  justify-between  align-middle items-center w-full">
+    <div className="flex flex-col static sm:flex-row text-white sm:h-24  font-Open z-20 px-3 sm:px-5 sm:py-6 py-5  justify-between  align-middle items-center w-full">
       <div className="sm:text-4xl flex text-4xl font-bold mr-5">
         <a href="/squad">Fiverr. Squad</a>
         <p>{myUser.firstname}</p>
