@@ -19,7 +19,9 @@ export default function Profil() {
   console.log(data);
   console.log(data?.User_by_pk?.user_squads);
 
-  if(loading){return <Loading/>}
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex flex-col h-screen pb-36 text-white items-center sm:items-start overflow-y-auto">
