@@ -26,7 +26,7 @@ function squad() {
   };
 
   return (
-    <div className="overflow-y-auto w-full sm:pr-20 h-screen">
+    <div className="overflow-y-auto mt-10 w-full sm:pr-20 h-screen">
       <div className="w-full text-white mb-80 sm:mb-40">
         <div className="mx-4 sm:mx-0">
           <div className="sm:mt-10">

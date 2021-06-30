@@ -20,7 +20,7 @@ export default function Profil() {
 
   return (
     <div className="flex flex-col h-screen pb-36 text-white items-center sm:items-start overflow-y-auto">
-      <div className="bg-white mt-10 w-11/12 sm:w-8/12 bg-opacity-20 rounded-md shadow-inputShadow p-5 sm:py-10">
+      <div className="bg-white mt-10 w-11/12 sm:w-8/12 bg-opacity-20 rounded-md shadow-inputShadow p-5 sm:py-">
         <h1 className="text-4xl font-Open font-bold">Welcome to {data?.User_by_pk?.firstname}'s profile</h1>
 
         <div className="flex mt-5 items-center md:items-start flex-col sm:flex-col">
