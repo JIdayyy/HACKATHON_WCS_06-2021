@@ -1,14 +1,19 @@
-import Link from 'next/link';
+import Link from "next/link";
 import { useQuery } from "@apollo/client";
+import Loading from "./Loading";
 import { getOneUser } from "../apollo/userQueries";
 import Image from "next/image";
 
 
 function FreelanceCard({ id }: { id: string }): JSX.Element {
   const { data, loading } = useQuery(getOneUser, { variables: { id } });
-  console.log(data);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="item">
+        <i className="loader2 "></i>
+      </div>
+    );
 
   return (
     <div className="transition mx-4 duration-500 w-11/12 my-4 sm:w-60 h-80 bg-white bg-blur-xl bg-opacity-20 sm:m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white transform hover:-translate-y-1 hover:scale-110">
@@ -20,8 +25,8 @@ function FreelanceCard({ id }: { id: string }): JSX.Element {
               <Image src="/profile_placeholder.png" width={52} height={80} />
             )
           })`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       ></div>
       <div className="w-full h-full flex flex-col items-left align-middle justify-center">

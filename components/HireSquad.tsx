@@ -9,31 +9,37 @@ export default function HireSquad() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    getValues,
   } = useForm();
-  const onSubmit = (data: object) => console.log(watch);
-  console.log(errors);
 
   const [show, setShow] = useState(false);
 
   return (
     <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
       <div className="w-screen h-screen flex flex-col justify-center absolute items-center bg-black bg-opacity-50">
-        <div className="w-11/12 flex flex-col  rounded-lg p-8 md:p-12 bg-backGround bg-cover sm:w-6/12 shadow-inputShadow">
+        <div className="w-11/12 flex flex-col  rounded-lg p-6 md:p-12 bg-backGround bg-cover sm:w-6/12 shadow-inputShadow">
           <div className="flex w-full justify-between">
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col  ">
-                <p className="text-white font-Open text-4xl font-bold">Space Rocket</p>
-                <p className="text-white text-xl">would gladly work with you, contact us!</p>
+                <p className="text-white font-Open text-4xl font-bold">
+                  Space Rocket
+                </p>
+                <p className="text-white text-xl">
+                  would gladly work with you, contact us!
+                </p>
               </div>
               <Link href="/squad">
-                <Image className="cursor-pointer" src={close} width={20} height={20} alt="close" />
+                <Image
+                  className="cursor-pointer"
+                  src={close}
+                  width={20}
+                  height={20}
+                  alt="close"
+                />
               </Link>
             </div>
           </div>
 
-          <form className="flex font-Open flex-col mt-3" onSubmit={handleSubmit(onSubmit)}>
+          <form className="flex font-Open flex-col mt-3">
             <p className="text-white">name</p>
             <input
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
@@ -58,7 +64,6 @@ export default function HireSquad() {
               className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"
               value="Send"
-              onClick={handleSubmit(onSubmit)}
             />
           </form>
         </div>

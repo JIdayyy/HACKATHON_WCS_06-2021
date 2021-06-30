@@ -1,9 +1,9 @@
-import { useQuery } from '@apollo/client';
-import { useRouter } from 'next/router';
-import { searchSquad } from '../../apollo/squadQueries';
-import { userSearch } from '../../apollo/userQueries';
-import FreelanceCard from '../../components/FreelanceCard2';
-import Group_Card from '../../components/Group_Card';
+import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import { searchSquad } from "../../apollo/squadQueries";
+import { userSearch } from "../../apollo/userQueries";
+import FreelanceCard from "../../components/FreelanceCard2";
+import Group_Card from "../../components/Group_Card";
 
 function SearchPage() {
   const router = useRouter();
@@ -11,16 +11,14 @@ function SearchPage() {
   const { data: squadsDatas } = useQuery(searchSquad, {
     variables: { filter: `%${filter}%` },
   });
-  console.log(squadsDatas);
   const { data: usersDatas } = useQuery(userSearch, {
     variables: { filter: `%${filter}%` },
   });
-  console.log(usersDatas);
 
   return (
-    <div className="h-screen flex flex-col items-center overflow-y-auto w-full  ">
-      <div className=" flex flex-col items-start w-full">
-        <h3 className="text-white font-Open font-bold text-3xl">
+    <div className="h-screen overflow-y-auto w-full text-white text-xl ">
+      <div className=" flex flex-col items-center w-full">
+        <h3>
           Users with {filter} keyword ({usersDatas?.User.length})
         </h3>
         <div className="ease-in-out flex justify-center sm:justify-start flex-wrap">

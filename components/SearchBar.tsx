@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import router from 'next/router';
+import { useState } from "react";
+import router from "next/router";
 
 export default function SearchBar() {
-  const [onSearch, setOnSearch] = useState('');
+  const [onSearch, setOnSearch] = useState("");
 
   const handleSubmit = async () => {
     router.push(`/search/${onSearch}`);
@@ -16,9 +16,6 @@ export default function SearchBar() {
         placeholder="Search"
         className="sm:w-6/12 w-full h-11 rounded-lg py-5 focus:outline-none outline-none text-white bg-white shadow-inputShadow bg-opacity-20 px-4"
       />
-      <button type="submit" className="bg-transparent">
-        <img className="object-cover transform mx-4 " src="/vector.svg"></img>
-      </button>
     </form>
   );
 }

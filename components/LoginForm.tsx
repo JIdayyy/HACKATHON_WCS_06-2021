@@ -11,13 +11,10 @@ import { userState, authState } from '../components/states';
 export default function LoginForm(): JSX.Element {
   const [userAppState, setUserAppState] = useRecoilState(userState);
   const [isAuth, setisAuth] = useRecoilState(authState);
-  console.log(isAuth);
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    getValues,
   } = useForm();
 
   const onSubmit = async (data: { email: string; password: string }) => {
@@ -37,8 +34,6 @@ export default function LoginForm(): JSX.Element {
       return router.push('/');
     }
   };
-
-  const [show, setShow] = useState(false);
 
   return (
     <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
@@ -63,8 +58,8 @@ export default function LoginForm(): JSX.Element {
           <form className="flex font-Open flex-col mt-3" onSubmit={handleSubmit(onSubmit)}>
             <p className="text-white">Email</p>
             <input
-              className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
-              type="password"
+              className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
+              type="text"
               placeholder="email@email.com"
               {...register('email', {})}
             />
@@ -72,14 +67,15 @@ export default function LoginForm(): JSX.Element {
 
             <input
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
-              type="text"
+              type="password"
               placeholder="password"
               {...register('password', {
                 required: 'Specify your password',
               })}
             />
-            {errors.password && <p style={{ color: 'white' }}>{errors.password.message}</p>}
-
+            {errors.password && (
+              <p style={{ color: 'white' }}>{errors.password.message}</p>
+            )}
             <input
               className="rounded-md p-1 mt-5 text-white cursor-pointer bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"
