@@ -23,7 +23,7 @@ export default function LoginForm(): JSX.Element {
   const onSubmit = async (data: { email: string; password: string }) => {
     const RES = await axios({
       method: "POST",
-      url: "http://localhost:3000/api/auth/login",
+      url: "https://hackathon-wcs-06-2021-3ap1w9b9f-space-xxx.vercel.app/api/auth/login",
       data: {
         email: data.email,
         password: data.password,
