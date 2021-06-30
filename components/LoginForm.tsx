@@ -64,7 +64,7 @@ export default function LoginForm(): JSX.Element {
             <p className="text-white">Email</p>
             <input
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
-              type="password"
+              type="text"
               placeholder="email@email.com"
               {...register('email', {})}
             />
@@ -72,7 +72,7 @@ export default function LoginForm(): JSX.Element {
 
             <input
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
-              type="text"
+              type="password"
               placeholder="password"
               {...register('password', {
                 required: 'Specify your password',
