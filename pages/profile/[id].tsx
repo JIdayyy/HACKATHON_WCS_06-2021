@@ -4,6 +4,8 @@ import { getOneUser } from '../../apollo/userQueries';
 import Group_Card from '../../components/Group_Card';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
+import { userState } from '../../components/states';
+import { useRecoilState } from 'recoil';
 interface ISquad {
   id: string;
   name: string;
@@ -15,7 +17,7 @@ export default function Profil() {
   const router = useRouter();
   const { id } = router.query;
   const { data, loading, error } = useQuery(getOneUser, { variables: { id } });
-
+  const [user, setUser] = useRecoilState(userState);
   if (loading) {
     return <Loading />;
   }
