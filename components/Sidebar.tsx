@@ -26,13 +26,13 @@ export default function Sidebar({ isSideBarVisible, setIsSideBarVisible }: IProp
     <div
       className={
         isSideBarVisible
-          ? 'transition ease-in duration-700 flex flex-col p-10 w-screen h-screen absolute top-0  left-0 z-50 transform bg-opacity-50 bg-backGround bg-cover '
+          ? 'transition ease-in duration-700 flex flex-col p-8 w-screen h-screen absolute top-0  left-0 z-50 transform bg-opacity-50 bg-backGround bg-cover '
           : 'w-sideBar z-50 hidden p-10 sm:flex  bg-opacity-75 '
       }>
       <button className="flex sm:hidden w-full justify-end" onClick={handleClick}>
         <Image src={close} height={25} width={25} alt="cross" />
       </button>
-      <div className="flex flex-col font-Montserrat text-white font-open ">
+      <div className="flex flex-col font-Montserrat text-left text-white font-open ">
         <Link href="/squad">
           <button className="transition duration-500 w-full flex items-start hover hover:-translate-y-1 hover:scale-110" onClick={handleClick}>
             All catégories
