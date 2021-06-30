@@ -1,9 +1,9 @@
-import { useQuery } from '@apollo/client';
-import { useRouter } from 'next/router';
-import { searchSquad } from '../../apollo/squadQueries';
-import { userSearch } from '../../apollo/userQueries';
-import FreelanceCard from '../../components/FreelanceCard2';
-import Group_Card from '../../components/Group_Card';
+import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import { searchSquad } from "../../apollo/squadQueries";
+import { userSearch } from "../../apollo/userQueries";
+import FreelanceCard from "../../components/FreelanceCard2";
+import Group_Card from "../../components/Group_Card";
 
 function SearchPage() {
   const router = useRouter();
@@ -18,12 +18,12 @@ function SearchPage() {
   console.log(usersDatas);
 
   return (
-    <div className="h-screen overflow-y-auto w-full  ">
+    <div className="h-screen overflow-y-auto w-full text-white text-xl ">
       <div className=" flex flex-col items-center w-full">
         <h3>
           Users with {filter} keyword ({usersDatas?.User.length})
         </h3>
-        <div className="ease-in-out flex mb-60 justify-center sm:justify-start flex-wrap">
+        <div className="ease-in-out flex justify-center sm:justify-start flex-wrap">
           {usersDatas?.User.map((squad: { id: string }) => {
             return <FreelanceCard key={squad.id} id={squad.id} />;
           })}
