@@ -1,9 +1,11 @@
-
+import { useSession, getSession } from 'next-auth/client';
 import Image from 'next/image';
+import router from 'next/router'
+import {useEffect} from 'react'
 import Log from '../public/LogIn.svg';
 import Link from 'next/link';
 
-export default function Home(): JSX.Element {
+export default  function Home(): JSX.Element {
   return (
     <div className="h-screen w-screen text-white bg-backGround bg-cover bg-no-repeat bg-center z-50 flex-col absolute top-0 items-center justify-center min-h-screen py-2">
       <div className="w-full flex pr-12 pt-5 justify-end">
