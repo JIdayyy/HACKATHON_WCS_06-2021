@@ -6,7 +6,7 @@ import { SetStateAction, Dispatch } from 'react';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
 import { userState } from './states';
-
+import {useRouter} from 'next/router'
 import router from 'next/router';
 export default function Navbar({ setIsSideBarVisible }: { setIsSideBarVisible: Dispatch<SetStateAction<boolean>> }) {
   const [myUser, setMyUser] = useRecoilState(userState);
