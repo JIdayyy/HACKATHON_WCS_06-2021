@@ -11,13 +11,10 @@ import { userState, authState } from '../components/states';
 export default function LoginForm(): JSX.Element {
   const [userAppState, setUserAppState] = useRecoilState(userState);
   const [isAuth, setisAuth] = useRecoilState(authState);
-  console.log(isAuth);
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    getValues,
   } = useForm();
 
   const onSubmit = async (data: { email: string; password: string }) => {
@@ -38,8 +35,6 @@ export default function LoginForm(): JSX.Element {
     }
   };
 
-  const [show, setShow] = useState(false);
-
   return (
     <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
       <div className="w-screen h-screen flex flex-col justify-center absolute items-center p-4 bg-black bg-opacity-50">
@@ -49,18 +44,31 @@ export default function LoginForm(): JSX.Element {
               <div className="flex flex-col  ">
                 <p className="text-white font-Open text-4xl font-bold">Login</p>
                 {isAuth ? (
-                  <p className="text-white text-xl">Compte créé avec succes, veuillez vous connecter.</p>
+                  <p className="text-white text-xl">
+                    Compte créé avec succes, veuillez vous connecter.
+                  </p>
                 ) : (
-                  <p className="text-white text-xl">Join and work with the fiver freelance community</p>
+                  <p className="text-white text-xl">
+                    Join and work with the fiver freelance community
+                  </p>
                 )}
               </div>
               <Link href="/">
-                <Image className="cursor-pointer" src={close} width={20} height={20} alt="close" />
+                <Image
+                  className="cursor-pointer"
+                  src={close}
+                  width={20}
+                  height={20}
+                  alt="close"
+                />
               </Link>
             </div>
           </div>
 
-          <form className="flex font-Open flex-col mt-3" onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className="flex font-Open flex-col mt-3"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <p className="text-white">Email</p>
             <input
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
@@ -78,7 +86,9 @@ export default function LoginForm(): JSX.Element {
                 required: 'Specify your password',
               })}
             />
-            {errors.password && <p style={{ color: 'white' }}>{errors.password.message}</p>}
+            {errors.password && (
+              <p style={{ color: 'white' }}>{errors.password.message}</p>
+            )}
 
             <input
               className="rounded-md p-1 mt-5 text-white cursor-pointer bg-buttonBlue focus:outline-none shadow-inputShadow"

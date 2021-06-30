@@ -1,9 +1,9 @@
-import { useQuery } from "@apollo/client";
-import { useRouter } from "next/dist/client/router";
-import { getOneUser } from "../../apollo/userQueries";
-import Group_Card from "../../components/Group_Card";
-import Loading from "../../components/Loading";
-import Error from "../../components/Error";
+import { useQuery } from '@apollo/client';
+import { useRouter } from 'next/dist/client/router';
+import { getOneUser } from '../../apollo/userQueries';
+import Group_Card from '../../components/Group_Card';
+import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 interface ISquad {
   id: string;
   name: string;
@@ -16,9 +16,6 @@ export default function Profil() {
   const { id } = router.query;
   const { data, loading, error } = useQuery(getOneUser, { variables: { id } });
 
-  console.log(data);
-  console.log(data?.User_by_pk?.user_squads);
-
   if (loading) {
     return <Loading />;
   }
@@ -26,7 +23,7 @@ export default function Profil() {
     return <Error message="Error, can't get this profile" />;
   }
   const handleClick = () => {
-    router.push("/creationsquad");
+    router.push('/creationsquad');
   };
   return (
     <div className="flex flex-col h-screen pb-36 text-white items-center sm:items-start overflow-y-auto">
@@ -41,8 +38,8 @@ export default function Profil() {
               className=" h-60 sm:w-96 rounded-md shadow-inputShadow md:w-3/12 md:h-60"
               style={{
                 backgroundImage: `url(${data?.User_by_pk?.avatar_url})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
               }}
             ></div>
 
