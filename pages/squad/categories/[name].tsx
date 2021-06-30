@@ -3,6 +3,7 @@ import { useRouter } from 'next/dist/client/router';
 import { useQuery } from '@apollo/client';
 import Group_Card from '../../../components/Group_Card';
 import { squadById } from '../../../apollo/squadQueries';
+import Loading from '../../../components/Loading'
 interface ISquad {
   description: string;
   id: string;
@@ -13,6 +14,10 @@ function squadCategorie(): JSX.Element {
   const router = useRouter();
   const { name } = router.query;
   const { data, loading } = useQuery(squadById, { variables: { name } });
+
+  if(loading){return <Loading/>}
+
+
   return (
     <div className="h-screen overflow-y-auto w-full  ">
       <div className=" flex flex-col items-center sm:items-start sm:mx-0 w-full">

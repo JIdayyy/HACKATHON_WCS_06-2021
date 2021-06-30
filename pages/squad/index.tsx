@@ -1,10 +1,13 @@
 import React from 'react';
 import Group_Card from '../../components/Group_Card';
 import { useQuery } from '@apollo/client';
+import Loading from '../../components/Loading'
 import { getSquads } from '../../apollo/squadQueries';
 
 function squad(): JSX.Element {
   const { data, loading } = useQuery(getSquads);
+
+  if(loading){return <Loading/>}
   return (
     <div className="h-screen overflow-y-auto w-full mt-10">
       <div className=" flex flex-col items-center w-full">
