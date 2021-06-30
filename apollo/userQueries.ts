@@ -50,6 +50,15 @@ export const getOneUser = gql`
     }
   }
 `;
+export const login = gql`
+  query login($email: bpchar!) {
+    User(where: { email: { _eq: $email } }) {
+      id
+      email
+      password
+    }
+  }
+`;
 
 export const updateUser = gql`
   mutation updateUser($id: uuid!, $user: User_set_input) {
@@ -58,6 +67,25 @@ export const updateUser = gql`
       firstname
       lastname
       email
+    }
+  }
+`;
+
+export const userSearch = gql`
+  query searchUser($filter: bpchar) {
+    User(
+      where: {
+        _or: [
+          { firstname: { _ilike: $filter } }
+          { lastname: { _ilike: $filter } }
+          { user_jobs: { Job: { label: { _ilike: $filter } } } }
+          { user_squads: { Squad: { name: { _ilike: $filter } } } }
+        ]
+      }
+    ) {
+      id
+      firstname
+      lastname
     }
   }
 `;
