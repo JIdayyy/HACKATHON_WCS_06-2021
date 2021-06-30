@@ -1,16 +1,15 @@
 import FreelanceCard from '../../components/FreelanceCard2';
-import React from "react";
-import Project_Card from "../../components/Project_Card copy";
-import { useRouter } from "next/dist/client/router";
-import { getOneSquad } from "../../apollo/squadQueries";
-import { allProjects } from "../../apollo/projectQueries";
-import { useQuery } from "@apollo/client";
-import Loading from "../../components/Loading";
-import { useState } from "react";
-import JoinSquad from "../../components/JoinSquad";
-import Link from "next/link";
-import Image from "next/image";
-
+import React from 'react';
+import Project_Card from '../../components/Project_Card copy';
+import { useRouter } from 'next/dist/client/router';
+import { getOneSquad } from '../../apollo/squadQueries';
+import { allProjects } from '../../apollo/projectQueries';
+import { useQuery } from '@apollo/client';
+import Loading from '../../components/Loading';
+import { useState } from 'react';
+import JoinSquad from '../../components/JoinSquad';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface IUser {
   id: string;
@@ -30,13 +29,10 @@ function squad() {
   const { data: projectData, loading: loading_2 } = useQuery(allProjects, {
     variables: { id },
   });
-  console.log(projectData);
-  console.log(squadData);
 
   const handleClick = () => {
     window.history.back();
   };
-  console.log(squadData);
 
   if (loading_1 || loading_2) {
     return <Loading />;

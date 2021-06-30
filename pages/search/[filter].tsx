@@ -11,11 +11,9 @@ function SearchPage() {
   const { data: squadsDatas } = useQuery(searchSquad, {
     variables: { filter: `%${filter}%` },
   });
-  console.log(squadsDatas);
   const { data: usersDatas } = useQuery(userSearch, {
     variables: { filter: `%${filter}%` },
   });
-  console.log(usersDatas);
 
   return (
     <div className="h-screen overflow-y-auto w-full  ">

@@ -1,28 +1,25 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import Link from "next/link";
-import Image from "next/image";
-import close from "../public/images/close.svg";
-import axios from "axios";
-import router, { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { userState, authState } from "../components/states";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Link from 'next/link';
+import Image from 'next/image';
+import close from '../public/images/close.svg';
+import axios from 'axios';
+import router from 'next/router';
+import { useRecoilState } from 'recoil';
+import { userState, authState } from '../components/states';
 
 export default function LoginForm(): JSX.Element {
   const [userAppState, setUserAppState] = useRecoilState(userState);
   const [isAuth, setisAuth] = useRecoilState(authState);
-  console.log(isAuth);
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    getValues,
   } = useForm();
 
   const onSubmit = async (data: { email: string; password: string }) => {
     const RES = await axios({
-      method: "POST",
+      method: 'POST',
       url: process.env.NEXT_PUBLIC_LOGIN_URL,
       data: {
         email: data.email,
@@ -32,13 +29,11 @@ export default function LoginForm(): JSX.Element {
 
     const user = RES.data[0];
     setUserAppState({ ...user });
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
     if (user.id) {
-      return router.push("/");
+      return router.push('/');
     }
   };
-
-  const [show, setShow] = useState(false);
 
   return (
     <div className="w-screen h-screen absolute bg-backGround bg-no-repeat bg-cover z-50">
@@ -79,7 +74,7 @@ export default function LoginForm(): JSX.Element {
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="email@email.com"
-              {...register("email", {})}
+              {...register('email', {})}
             />
             <label className="text-white mt-3">Password</label>
 
@@ -87,12 +82,12 @@ export default function LoginForm(): JSX.Element {
               className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="password"
-              {...register("password", {
-                required: "Specify your password",
+              {...register('password', {
+                required: 'Specify your password',
               })}
             />
             {errors.password && (
-              <p style={{ color: "white" }}>{errors.password.message}</p>
+              <p style={{ color: 'white' }}>{errors.password.message}</p>
             )}
 
             <input

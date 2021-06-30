@@ -1,13 +1,13 @@
-import { useState, useEffect, SetStateAction } from "react";
-import { useForm } from "react-hook-form";
-import { useMutation } from "@apollo/client";
-import Image from "next/image";
-import { addUserToSquad } from "../apollo/squadQueries";
+import { SetStateAction } from 'react';
+import { useForm } from 'react-hook-form';
+import { useMutation } from '@apollo/client';
+import Image from 'next/image';
+import { addUserToSquad } from '../apollo/squadQueries';
 
-import { Dispatch } from "react";
-import router from "next/router";
-import { useRecoilState } from "recoil";
-import { errorState, userState } from "../components/states";
+import { Dispatch } from 'react';
+import router from 'next/router';
+import { useRecoilState } from 'recoil';
+import { errorState, userState } from '../components/states';
 
 interface IProps {
   setIsJoinForm: Dispatch<SetStateAction<boolean>>;
@@ -16,13 +16,11 @@ interface IProps {
 
 export default function JoinSquad({ setIsJoinForm, id }: IProps): JSX.Element {
   const [isError, setIsError] = useRecoilState(errorState);
-  const [currentUser, setCurrentUser] = useRecoilState(userState)
+  const [currentUser, setCurrentUser] = useRecoilState(userState);
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    getValues,
   } = useForm();
 
   const [addUser, { data, loading, error }] = useMutation(addUserToSquad);
@@ -33,20 +31,16 @@ export default function JoinSquad({ setIsJoinForm, id }: IProps): JSX.Element {
         squadId: id,
       },
     });
-    router.reload()
+    router.reload();
   };
-  console.log(error);
   if (error) {
     router.reload();
     setIsError(true);
-    console.log(error.message);
   }
-
-  const [show, setShow] = useState(false);
 
   return (
     <div className="w-screen h-screen fixed bg-backGround bg-no-repeat bg-cover top-0 left-0 z-50">
-      {isError ? error?.message : ""}
+      {isError ? error?.message : ''}
       <div className="w-screen h-screen flex flex-col justify-center absolute items-center bg-black bg-opacity-50">
         <div className="w-11/12 flex flex-col  rounded-lg p-8 md:p-12 bg-backGround bg-cover sm:w-6/12 shadow-inputShadow">
           <div className="flex w-full justify-between">
@@ -80,19 +74,19 @@ export default function JoinSquad({ setIsJoinForm, id }: IProps): JSX.Element {
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="Matthias"
-              {...register("name", {})}
+              {...register('name', {})}
             />
             <p className="text-white mt-3">Email</p>
             <input
               className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="email@email.com"
-              {...register("email", {})}
+              {...register('email', {})}
             />
             <p className="text-white mt-3">Let us a message</p>
             <textarea
               className="h-36 rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
-              {...register("message", { maxLength: 500 })}
+              {...register('message', { maxLength: 500 })}
             />
 
             <input

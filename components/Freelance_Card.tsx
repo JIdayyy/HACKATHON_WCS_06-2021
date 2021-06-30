@@ -8,9 +8,7 @@ interface IProps {
 }
 
 export default function Freelance_Card({ id }: IProps) {
-  console.log(id);
-  const { data, loading } = useQuery(getOneUser, { variables: { id } });
-  console.log(data);
+  const { data } = useQuery(getOneUser, { variables: { id } });
 
   return (
     <div className=" transition duration-500   h-96 bg-white bg-blur-xl bg-opacity-20 m-4 flex flex-col items-center shadow-inputShadow align-middle justify-between p-4 rounded-xl text-white transform hover:-translate-y-1 hover:scale-110">
@@ -22,7 +20,9 @@ export default function Freelance_Card({ id }: IProps) {
         <div className="text-xs"></div>
       </div>
       <div className="w-60">
-        <button className="text-sm font-bold bg-blue-400 rounded-xl px-4 py-1">Fiverr Profil</button>
+        <button className="text-sm font-bold bg-blue-400 rounded-xl px-4 py-1">
+          Fiverr Profil
+        </button>
       </div>
     </div>
   );
