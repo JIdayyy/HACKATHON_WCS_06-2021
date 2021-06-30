@@ -7,7 +7,7 @@ import { addUserToSquad } from "../apollo/squadQueries";
 import { Dispatch } from "react";
 import router from "next/router";
 import { useRecoilState } from "recoil";
-import { errorState } from "../components/states";
+import { errorState, userState } from "../components/states";
 
 interface IProps {
   setIsJoinForm: Dispatch<SetStateAction<boolean>>;
@@ -16,6 +16,7 @@ interface IProps {
 
 export default function JoinSquad({ setIsJoinForm, id }: IProps): JSX.Element {
   const [isError, setIsError] = useRecoilState(errorState);
+  const [currentUser, setCurrentUser] = useRecoilState(userState)
   const {
     register,
     handleSubmit,
@@ -28,10 +29,11 @@ export default function JoinSquad({ setIsJoinForm, id }: IProps): JSX.Element {
   const onSubmit = (data: object) => {
     addUser({
       variables: {
-        userId: "8685232e-ec66-452c-8d07-daa0ab9d954f",
+        userId: currentUser.id,
         squadId: id,
       },
     });
+    router.reload()
   };
   console.log(error);
   if (error) {
@@ -94,7 +96,7 @@ export default function JoinSquad({ setIsJoinForm, id }: IProps): JSX.Element {
             />
 
             <input
-              className="rounded-md p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
+              className="rounded-md p-1 mt-5 cursor-pointer text-white bg-buttonBlue focus:outline-none shadow-inputShadow"
               type="submit"
               value="Send"
               onClick={handleSubmit(onSubmit)}
