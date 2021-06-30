@@ -8,7 +8,7 @@ import Loading from '../../components/Loading';
 import { useState } from 'react';
 import JoinSquad from '../../components/JoinSquad';
 import Link from 'next/link';
-import FreelanceCard from '../../components/Freelance_Card';
+import FreelanceCard from '../../components/FreelanceCard2';
 
 interface IUser {
   id: string;

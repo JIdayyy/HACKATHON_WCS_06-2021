@@ -53,10 +53,15 @@ export default function Profil() {
           </div>
         </div>
       </div>
+      <div className="flex justify-between items-end w-11/12">
+        <h2 className="text-4xl font-Open font-bold mt-20">My Squads</h2>
+        <button
+          className="rounded-md w-2/5 p-1 mt-5 text-white bg-buttonBlue focus:outline-none shadow-inputShadow sm:w-1/5"
+          onClick={() => handleClick()}>
+          ADD a new squad
+        </button>
+      </div>
 
-      <h2 className="text-4xl font-Open font-bold mt-20">My Squads</h2>
-
-      <button onClick={() => handleClick()}>ADD SQUAD</button>
       <div className="w-full flex mb-32 flex-wrap">
         {data?.User_by_pk?.user_squads?.map((squad: { Squad: ISquad }, index: number) => {
           return <Group_Card id={squad.Squad.id} name={squad.Squad.name} description={squad.Squad.description} img_url={squad.Squad.img_url} />;
