@@ -63,7 +63,7 @@ export default function LoginForm(): JSX.Element {
           <form className="flex font-Open flex-col mt-3" onSubmit={handleSubmit(onSubmit)}>
             <p className="text-white">Email</p>
             <input
-              className="rounded-md text-white focus:ouline-none bg-grayinput bg-opacity-30 shadow-inputShadow p-2"
+              className="rounded-md text-white bg-grayinput focus:outline-none bg-opacity-30 shadow-inputShadow p-2"
               type="text"
               placeholder="email@email.com"
               {...register('email', {})}
